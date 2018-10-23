@@ -3,4 +3,8 @@
     <string name="marca_do_produto">Marca_do_Produto:</string>
     <string name="nome_do_produto">Nome_do_Produto:</string>
     <string name="valor_do_produto">Valor_do_produto</string>
+    <string name="nav_header_desc">Valor_do_produto</string>
+     <string name="nav_header_title">Valor_do_produto</string>
+    <string name="nav_header_subtitle">Valor_do_produto</string>
+     <string name="action_settings">Valor_do_produto</string>
 </resources>
