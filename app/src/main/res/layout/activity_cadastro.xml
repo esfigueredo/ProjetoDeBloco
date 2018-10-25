@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Telacadastro"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.ActivityCad">
+
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/ProdutoId"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:completionHint="@android:string/selectAll"
+        android:hint="@string/nome_do_produto"
+        />
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/DescriçãoId"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:completionHint="@android:string/selectAll"
+        android:hint="@string/Descrição_do_Produto"
+        />
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/marcadoprodutoId"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:completionHint="@android:string/selectAll"
+        android:hint="@string/marca_do_produto"
+         />
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+
+        android:id="@+id/valordoprodutoId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/valor_do_produto"
+        android:inputType="numberDecimal"
+        />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/Promocao1Id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Valor_da_Promocao1"
+        android:inputType="numberDecimal"
+        />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/Promocao2Id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Valor_da_Promocao2"
+        android:inputType="numberDecimal|number"
+        >
+
+
+    </android.support.v7.widget.AppCompatAutoCompleteTextView>
+
+
+</LinearLayout>
