@@ -71,15 +71,23 @@
             android:layout_height="10dp" />
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
-        android:id="@+id/Promocao2Id"
+        android:id="@+id/ClienteId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/Valor_da_Promocao2"
+        android:hint="@string/IdCliente"
+        android:visibility="invisible"
         android:inputType="numberDecimal|number"
         >
 
 
     </android.support.v7.widget.AppCompatAutoCompleteTextView>
+
+    <Button
+        android:id="@+id/Savebtn"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:text="Salvar Produto"
+        />
 
 
 </LinearLayout>
