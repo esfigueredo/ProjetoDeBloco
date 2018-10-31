@@ -59,10 +59,10 @@
             android:layout_height="10dp" />
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
-        android:id="@+id/Promocao1Id"
+        android:id="@+id/LocalId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/Valor_da_Promocao1"
+        android:hint="@string/Localidade"
         android:inputType="numberDecimal"
         />
 
