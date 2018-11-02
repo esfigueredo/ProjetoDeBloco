@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Telacadastro"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.ActivityCad">
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/ProdutoId"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:completionHint="@android:string/selectAll"
+        android:hint="@string/nome_do_produto"
+        android:imeOptions="actionNext"
+        />
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/marcadoprodutoId"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:completionHint="@android:string/selectAll"
+        android:hint="@string/marca_do_produto"
+        android:imeOptions="actionNext"
+         />
+
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+
+        android:id="@+id/valordoprodutoId"
+        android:layout_width="match_parent"
+        android:ems="10"
+        android:layout_height="wrap_content"
+        android:hint="@string/valor_do_produto"
+        android:inputType="numberDecimal"
+        android:imeOptions="actionNext"
+        />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/LocalId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/local"
+        android:imeOptions="actionNext"
+        />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+
+    <Button
+        android:id="@+id/Savebtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar Produto" />
+
+
+</LinearLayout>
