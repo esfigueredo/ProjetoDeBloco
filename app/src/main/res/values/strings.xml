@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">ProjetoDeBloco</string>
-    <string name="marca_do_produto">Marca_do_Produto:</string>
-    <string name="nome_do_produto">Nome_do_Produto:</string>
-    <string name="valor_do_produto">Valor_do_produto</string>
+    <string name="marca_do_produto">Marca:</string>
+    <string name="nome_do_produto">Produto:</string>
+    <string name="valor_do_produto">Valor</string>
     <string name="nav_header_desc">Valor_do_produto</string>
     <string name="nav_header_title">Valor_do_produto</string>
     <string name="nav_header_subtitle">Valor_do_produto</string>
     <string name="action_settings">Valor_do_produto</string>
     <string name="navigation_drawer_open" />
     <string name="navigation_drawer_close" />
-    <string name="Nome_do_produto">Nome_do_produto</string>
-    <string name="Marca_do_produto">Marca_do_produto</string>
+    <string name="Nome_do_produto">produto</string>
+    <string name="Marca_do_produto">Marca</string>
     <string name="Descrição_do_Produto">Descrição_do_Produto</string>
-    <string name="Valor_da_Promocao2">Valor_da_Promocao2</string>
-    <string name="Valor_da_Promocao1">Valor_da_Promocao1</string>
+    <string name="Valor_da_Promocao2">Valor</string>
+    <string name="Valor_da_Promocao1">Valor</string>
     <string name="IdCliente">IdCliente</string>
-    <string name="Localidade">Localidade</string>
+    <string name="local">Endereço do estabelecimento</string>
 </resources>

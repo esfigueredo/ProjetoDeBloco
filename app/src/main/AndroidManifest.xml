@@ -17,7 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".activities.Activity_Produto"></activity>
+        <activity android:name=".activities.Activity_Produto">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.esfig.projetodebloco.Main2Activity" />
+        </activity>
     </application>
  \\                         .activities.ActivityCad
     \\                       .MainActivity

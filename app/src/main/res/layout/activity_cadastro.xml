@@ -8,37 +8,30 @@
     android:orientation="vertical"
     tools:context=".activities.ActivityCad">
 
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
         android:id="@+id/ProdutoId"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         android:completionHint="@android:string/selectAll"
         android:hint="@string/nome_do_produto"
+        android:imeOptions="actionNext"
         />
-
-    <android.support.v4.widget.Space
-        android:layout_width="wrap_content"
-        android:layout_height="10dp" />
-
-    <android.support.v7.widget.AppCompatAutoCompleteTextView
-        android:id="@+id/DescriçãoId"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:completionHint="@android:string/selectAll"
-        android:hint="@string/Descrição_do_Produto"
-        />
-
-    <android.support.v4.widget.Space
-        android:layout_width="wrap_content"
-        android:layout_height="10dp" />
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
         android:id="@+id/marcadoprodutoId"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         android:completionHint="@android:string/selectAll"
         android:hint="@string/marca_do_produto"
+        android:imeOptions="actionNext"
          />
 
     <android.support.v4.widget.Space
@@ -49,9 +42,11 @@
 
         android:id="@+id/valordoprodutoId"
         android:layout_width="match_parent"
+        android:ems="10"
         android:layout_height="wrap_content"
         android:hint="@string/valor_do_produto"
         android:inputType="numberDecimal"
+        android:imeOptions="actionNext"
         />
 
         <android.support.v4.widget.Space
@@ -62,32 +57,21 @@
         android:id="@+id/LocalId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/Localidade"
-        android:inputType="numberDecimal"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/local"
+        android:imeOptions="actionNext"
         />
 
         <android.support.v4.widget.Space
             android:layout_width="wrap_content"
             android:layout_height="10dp" />
 
-    <android.support.v7.widget.AppCompatAutoCompleteTextView
-        android:id="@+id/ClienteId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/IdCliente"
-        android:visibility="invisible"
-        android:inputType="numberDecimal|number"
-        >
-
-
-    </android.support.v7.widget.AppCompatAutoCompleteTextView>
-
     <Button
         android:id="@+id/Savebtn"
-        android:layout_width="264dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salvar Produto"
-        />
+        android:text="Salvar Produto" />
 
 
 </LinearLayout>

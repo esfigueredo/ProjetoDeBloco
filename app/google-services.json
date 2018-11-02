@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "351946204822",
+    "firebase_url": "https://projetodebloco-99ff0.firebaseio.com",
+    "project_id": "projetodebloco-99ff0",
+    "storage_bucket": "projetodebloco-99ff0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351946204822:android:a6f29f7c8e895726",
+        "android_client_info": {
+          "package_name": "com.example.esfig.projetodebloco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351946204822-1pqccqc2qd3kpjqbio09b69ktk1q0fbl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJLnV1tLRdk6nKoyHBOR31PBV4jMEct5c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
