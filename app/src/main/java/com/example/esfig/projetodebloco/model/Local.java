@@ -1,5 +1,8 @@
 package com.example.esfig.projetodebloco.model;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
 public class Local {
 
     public String id;
