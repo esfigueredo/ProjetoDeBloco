@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="produtos_array">
+
+        <item>CLINICAR</item>
+        <item>PHILIPS DO BRASIL</item>
+        <item>HONDA LOCK DO BRASIL</item>
+        <item>COLORTECH DA AMAZONIA</item>
+        <item>NAUTICA AMAPARI</item>
+        <item>SCHINCARIOL</item>
+        <item>DAKOTA NORDESTE S/A</item>
+        <item>MACANN IND. E COM. LTDA. </item>
+        <item>RENNER SAYERLACK S/A. </item>
+        <item>TINABRAS IND. E COM. LTDA. </item>
+        <item>WESTERN POOLS IND. COM. ARTEF. CIMENTO LTDA. </item>
+        <item>ATUAL SERV. TRANSP. RAP. LTDA. </item>
+        <item>CAJAMAR- S.PAULO- EXPRESSO </item>
+        <item>ASA SERVS. DE LIMPEZA LTDA. </item>
+        <item>IMPACTA S/A. IND. E COM. </item>
+        <item>SUDAMAX IND. E COM. DE CIGARROS LTDA. </item>
+        <item>CRISTALE RECURSOS HUMANOS E ASSES. LTDA. </item>
+        <item>GETAL RECURSOS HUMANOS LTDA. </item>
+        <item>ELETROMECÂNICA HERTZWALOM LTDA </item>
+        <item>IND. E COM. DE AUTO PEÇAS REI LTDA. </item>
+
+
+
+</string-array>
+</resources>
+

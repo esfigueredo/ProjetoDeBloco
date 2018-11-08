@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="produto_array">
+
+        <item>X-BOX 360</item>
+        <item>X-BOX ONE</item>
+        <item>X-BOX S</item>
+        <item>PS4 SONY</item>
+        <item>PS3	SONY</item>
+        <item>PS2 SONY</item>
+        <item>PS1	SONY</item>
+        <item>PC COMPUTER</item>
+        <item>Amazon Kindle</item>
+        <item>Apple iPod</item>
+        <item>Audio Highway Listen Up</item>
+        <item>Bose Noise-Canceling Headphones</item>
+        <item>Diamond Rio PMP300</item>
+        <item>Genica GN803 Tavarua</item>
+        <item>Logitech Harmony</item>
+        <item>Mattel Electronics Football</item>
+        <item>MusicGremlin Wi-Fi MP3 Player</item>
+        <item>Game Boy Nintendo</item>
+        <item>Optical Media</item>
+        <item>Panasonic DVD-L10</item>
+        <item>Regency TR-1</item>
+        <item>Sony Discman D-50</item>
+        <item>Sony Walkman TPS-L2</item>
+        <item>Sony Watchman</item>
+        <item>TiVo</item>
+        <item>Zenith Space Command</item>
+        <item>Apple AirPort</item>
+        <item>Apple iPad</item>
+        <item>Apple PowerBook 100</item>
+        <item>Asus Eee PC 700</item>
+        <item>Commodore 64</item>
+        <item>Connectix QuickCam</item>
+        <item>DiskOnKey</item>
+        <item>Engelbart Mouse</item>
+        <item>Epson HX-20</item>
+        <item>GRiD Compass 1101</item>
+        <item>Hewlett-Packard HP-65</item>
+        <item>Iomega Zip Drive</item>
+        <item>LED</item>
+        <item>Lego</item>
+        <item>MicroSD</item>
+        <item>MITS Altair 8800</item>
+        <item>Radio Shack TRS-80 Model 100</item>
+        <item>Texas Instruments SR-10</item>
+        <item>Apple iPhone</item>
+        <item>Ballpoint Pen</item>
+        <item>Bell 103</item>
+        <item>Bellsouth IBM Simon</item>
+        <item>BlackBerry 6210</item>
+        <item>Bluetooth Headset</item>
+        <item>Danger Hiptop, a.k.a. Sidekick</item>
+        <item>Fisher AG7 Space Pen</item>
+        <item>Motorola DynaTAC 8000x</item>
+        <item>Motorola Handie-Talkie HT 220 Slimline</item>
+        <item>Motorola PageWriter 2000</item>
+        <item>Motorola Razr V3</item>
+        <item>Motorola StarTac</item>
+        <item>Novatel Wireless MiFi</item>
+        <item>Olympus Zuiko Pearlcorder</item>
+        <item>Pager</item>
+        <item>Palm Pilot 1000</item>
+        <item>PhoneMate Model 400</item>
+        <item>Samsung Uproar</item>
+        <item>Sharp J-SH04</item>
+        <item>Speak e Spell</item>
+        <item>Air Taser Model 34000</item>
+        <item>Casio G-Shock DW-5000C</item>
+        <item>The Clapper</item>
+        <item>Credit Card</item>
+        <item>Dyson Air Multiplier</item>
+        <item>Energizer Alkaline Batteries</item>
+        <item>Fuzzbuster</item>
+        <item>Hamilton Pulsar</item>
+        <item>Leatherman</item>
+        <item>Lithium-Ion Batteries</item>
+        <item>Magellan NAV 1000</item>
+        <item>Spot Personal Tracker</item>
+        <item>Velcro</item>
+        <item>Zippo</item>
+        <item>Apple QuickTake 100</item>
+        <item>Canon EOS 5D Mark II</item>
+        <item>Eye-Fi</item>
+        <item>Flip</item>
+        <item>Fujifilm Quick Snap Disposable Camera</item>
+        <item>Kodak EasyShare One</item>
+        <item>Kodak Instamatic 100</item>
+        <item>Nikon F</item>
+        <item>Pentax K1000</item>
+        <item>Polaroid SX-70</item>
+        <item>Sony Betamovie BMC-100P</item>
+        <item>Sony Mavica MVC-FD5</item>
+        <item>Black e Decker Cordless Electric Drill</item>
+        <item>Clock Radio</item>
+        <item>Dirt Devil Hand Vac</item>
+        <item>Electric Razor</item>
+        <item>iRobot Roomba</item>
+        <item>Modern-Day Can Opener</item>
+        <item>Power Strip</item>
+        <item>Smoke Detector</item>
+        <item>Breathalyzer</item>
+        <item>Broxodent Electric Toothbrush</item>
+        <item>Digital Thermometer</item>
+        <item>Hearing Aids</item>
+        <item>Heart-Rate Monitor</item>
+        <item>Jarvik 7</item>
+        <item>Pacemaker</item>
+        <item>Pedometer</item>
+        <item>SteriPEN</item>
+        <item>Apple Newton</item>
+        <item>Atari Lynx</item>
+        <item>Sony LIBRIé EBR-1000EP</item>
+        <item>Archos Gmini 400</item>
+        <item>Psion MC 400</item>
+        <item>ASPIRADOR DE PÓ</item>
+        <item>FERRO DE PASSAR ROUPA</item>
+        <item>MÁQUINA DE LAVAR ROUPA</item>
+        <item>BEBEDOURO</item>
+        <item>MIXER</item>
+        <item>ESPREMEDOR DE FRUTAS</item>
+        <item>LIQUIDIFICADOR</item>
+        <item>BATEDEIRA</item>
+        <item>SANDUICHEIRA</item>
+        <item>TORRADEIRA</item>
+        <item>FORNINHO ELÉTRICO</item>
+        <item>MÁQUINA DE LAVAR LOUÇAS</item>
+        <item>GELADEIRA</item>
+        <item>FREEZER</item>
+        <item>FOGÃO</item>
+        <item>COIFA</item>
+        <item>VENTILADOR</item>
+        <item>CAFETEIRA</item>
+        <item>TELEFONE</item>
+        <item>ASPIRADOR DE PÓ PORTÁTIL</item>
+        <item>FERRO Á VAPOR VERTICAL</item>
+        <item>ADEGA CLIMATIZADA</item>
+        <item>Abridores de garrafas, de lata, e saca-rolha</item>
+        <item>Batedor de carne</item>
+        <item>Boleador</item>
+        <item>Caneca com as medidas dos ingredientes impressas</item>
+        <item>Colheres de pau</item>
+        <item>Colheres medidoras</item>
+        <item>Concha</item>
+        <item>Descascador de legumes</item>
+        <item>Escumadeira</item>
+        <item>Espátula</item>
+        <item>Garfão (garfo longo)</item>
+        <item>Jarra medidora</item>
+        <item>Jogo de facas para cozinha (dois tamanhos)</item>
+        <item>Luva térmica</item>
+        <item>Pão duro pequeno e médio</item>
+        <item>Pincel</item>
+        <item>Ralador triangular de inox</item>
+        <item>Três tábuas para carne, legumes, e frutas</item>
+        <item>Peneiras</item>
+        <item>Caldeirão</item>
+        <item>Cortador de ovos cozidos</item>
+        <item>Cortador de pastel</item>
+        <item>Cortador de pizza</item>
+        <item>Cuscuzeiro</item>
+        <item>Descaroçador de azeitonas</item>
+        <item>Descaroçador de maçã</item>
+        <item>Foie</item>
+        <item>Porta- condimentos</item>
+        <item>Ralador e fatiador de legumes</item>
+        <item>Rolo de abrir massa</item>
+        <item>Tesoura trinchante de frango</item>
+        <item>Descansos de panela</item>
+        <item>Funil</item>
+        <item>Porta-condimento</item>
+        <item>Porta-sal</item>
+        <item>Saco de confeiteiro</item>
+        <item>Tesoura</item>
+        <item>açucareiro</item>
+        <item>bandeja grande</item>
+        <item>bandeja pequena</item>
+        <item>cesto para pão</item>
+        <item>coador pequeno para leite</item>
+        <item>concha para sorvete</item>
+        <item>cortador de queijo</item>
+        <item>espremedor simples de laranja</item>
+        <item>faca de pão</item>
+        <item>garrafa de vidro para colocar água na geladeira</item>
+        <item>garrafa térmica branca para leite</item>
+        <item>garrafa térmica preta para café</item>
+        <item>jogo de facas pequenas de serra</item>
+        <item>manteigueira</item>
+        <item>porta- adoçante de saquinho</item>
+        <item>portal- mel</item>
+        <item>porta- queijo ralado</item>
+        <item>tesoura</item>
+        <item>torradeira</item>
+        <item>tostex de tefal</item>
+        <item>Formas de plástico para gelo</item>
+        <item>Pegador de frios</item>
+        <item>Porta- frios</item>
+        <item>Prato para pudim</item>
+        <item>Prato para	bolo</item>
+        <item>Prato para rocambole</item>
+        <item>Quebra-nozes</item>
+        <item>Queijadeira com tampa</item>
+        <item>Toalhas de mesa e jogos americanos</item>
+        <item>Copos para whisky</item>
+        <item>Copos para cerveja</item>
+        <item>Copos para caipirinha</item>
+        <item>Copos para champagne</item>
+        <item>Copos para refrigerante</item>
+        <item>Descansa copos</item>
+        <item>Porta-vinho</item>
+        <item>Panos de prato só para o bar</item>
+        <item>Réchaud para conhaque</item>
+        <item>dosador de whisky </item>
+        <item>coqueteleira</item>
+        <item>pilão para caipirinhas</item>
+        <item>copo para mexer coquetéis que não possam ser agitados</item>
+        <item>bastões para mexer coquetéis de cabo longo</item>
+        <item>colheres de mexer coquetéis, de cabo longo e cabo curto</item>
+        <item>espremedor de frutas</item>
+        <item>coador </item>
+        <item>faca pequena de serra</item>
+        <item>tábua para cortar frutas</item>
+        <item>máquina de moer gelo</item>
+        <item>balde de gelo</item>
+        <item>pegador de gelo</item>
+        <item>concha pequena para pegar gelo moído</item>
+        <item>balde para gelo</item>
+        <item>saca-rolha para vinhos e abridor de garrafa</item>
+        <item>jarra pequena </item>
+        <item>jarra grande </item>
+        <item>lixeira pequena para pia</item>
+        <item>Marcador de copo</item>
+        <item>Termômetro para medir a temperatura do vinho</item>
+        <item>Colarinho de garrafa</item>
+        <item>Tampa para fechamento hermético</item>
+        <item>aparelho de jantar para churrasco</item>
+        <item>toalhas</item>
+        <item>Acendedor de churrasqueira</item>
+        <item>Assadeira de borda baixa para derreter queijo</item>
+        <item>Cestas para pão</item>
+        <item>Conjunto para churrasco cabo longo duas peças (garfão e faca comprida)</item>
+        <item>Espátula</item>
+        <item>Espeto para churrasco</item>
+        <item>Faqueiro de cabo de madeira</item>
+        <item>Grelha fixa para churrasqueira</item>
+        <item>Pegador de carnes</item>
+        <item>Puxador de brasa</item>
+        <item>Tábua para cortar churrasco com coletor de suco da carne</item>
+        <item>Travessas de madeira para colocar o churrasco</item>
+        <item>Braseiro pequeno de ferro</item>
+        <item>Carrinho para churrasco</item>
+        <item>Gira-grill</item>
+        <item>Aparelho de barbear elétrico</item>
+        <item>Cesto para roupa suja</item>
+        <item>Cestos de lixo para a pia e para a bacia</item>
+        <item>Espelho de parede com luz e aumento</item>
+        <item>Porta-maquiagem</item>
+        <item>Porta- pasta e escova de dente</item>
+        <item>Porta- toalhas</item>
+        <item>Porta-xampu</item>
+        <item>Recipientes para algodão, cotonete e lenços de papel</item>
+        <item>Saboneteira para o Box</item>
+        <item>Saboneteira sobre a pia</item>
+        <item>Secador de cabelos</item>
+        <item>Tapete na saída do Box e em frente a pia</item>
+        <item>Aramados para objetos de uso junto ao tanque</item>
+        <item>Bacia grande para roupa de cama e banho</item>
+        <item>Bacia média para roupa íntima</item>
+        <item>Balde de alumínio para ferver roupa</item>
+        <item>Balde para roupas em geral</item>
+        <item>Balde para toalhas de mesa e panos de prato</item>
+        <item>Cabides de plástico</item>
+        <item>Cesto arejado para roupa suja esperando lavagem</item>
+        <item>Cesto de roupas suja e limpa</item>
+        <item>Cesto para roupa passada</item>
+        <item>Cesto para roupa seca a passar</item>
+        <item>Dois ferros de passar roupas</item>
+        <item>Forração para a tabua de passar, macia e branca</item>
+        <item>Forros térmicos</item>
+        <item>Borrifador de água para roupa</item>
+        <item>Panos brancos de tecido de algodão fino para passar roupa sem que elas brilhem</item>
+        <item>Porta-ferro</item>
+        <item>Porta-prendedor de roupa</item>
+        <item>Prendedores de roupa</item>
+        <item>Varais de teto ou de armar</item>
+        <item>Máquina de lavar roupas ou um tanquinho</item>
+        <item>Secadora</item>
+        <item>Tábua de passar roupa</item>
+        <item>Tanque</item>
+        <item>pá de lixo</item>
+        <item>Rodos um para a cozinha e outro para o banheiro</item>
+        <item>Balde de cor escura para limpeza</item>
+        <item>Enceradeira</item>
+        <item>Espanador de pó</item>
+        <item>Flanelas</item>
+        <item>Lixeira</item>
+        <item>Lixeira para lixo reciclável</item>
+        <item>Pano de saco</item>
+        <item>Panos de limpeza para o chão</item>
+        <item>Vassoura de pelo só para varrer a sala e os quartos</item>
+        <item>Vassoura de piaçava</item>
+        <item>Vassoura mágica ou aspirador de pó</item>
+        <item>Recipiente Plástico</item>
+        <item>Escova para limpar dentro de bacia</item>
+        <item>Esponja multiuso</item>
+        <item>Pano de chão</item>
+        <item>Pano de limpeza para secar as pias</item>
+        <item>Flanela para lustrar as torneiras</item>
+        <item>Produtos necessários para a higienização</item>
+
+
+    </string-array>
+
+</resources>
