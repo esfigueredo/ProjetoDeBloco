@@ -12,26 +12,13 @@ import com.google.firebase.database.Transaction;
 
 public class PromocaoDAO extends ComunsDAO{
 
-    public void cadastrar(@NonNull final String Userid, @NonNull final Promocao promocao){
+    public void cadastro(@NonNull final String Userid, @NonNull final Promocao promocao){
 
-        database.getReference().runTransaction(new Transaction.Handler() {
+        //database.getReference().child("promocao/"+Userid+"/"+promocao.getId()).setValue(promocao);
 
-            @NonNull
-            @Override
-            public Transaction.Result doTransaction(@NonNull MutableData mutableData) {
+        //database.getReference().setValue("Hello, World!");
 
-                MarcaDAO marcadao =  new MarcaDAO();
-
-                marcadao.AddMarca(mutableData,Userid,promocao.getProduto().getMarca());
-
-                return Transaction.success(mutableData);
-            }
-
-            @Override
-            public void onComplete(@Nullable DatabaseError databaseError, boolean b, @Nullable DataSnapshot dataSnapshot) {
-                Log.d("marcaDao", "postTransaction:onComplete:" + databaseError);
-            }
-        });
+        
     }
 
 }

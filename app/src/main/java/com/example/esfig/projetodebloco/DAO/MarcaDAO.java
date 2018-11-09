@@ -14,8 +14,7 @@ public class MarcaDAO extends ComunsDAO{
 
 
     public void AddMarca(MutableData mutableData, String UserID, Marca marca){
-        //mutableData.getChildren("/marcas"+UserID).setValue(marca);
-
+        mutableData.child("marcas/"+UserID+"/"+marca.getId()).setValue(marca);
     }
 
 }

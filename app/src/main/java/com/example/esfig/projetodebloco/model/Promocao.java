@@ -9,17 +9,34 @@ import java.io.Serializable;
 public class Promocao implements Serializable {
 
     public String id;
-    public Produto produto;
+    public String produtoID;
+    public String produtoNome;
     public String nomeMarca;
     public double preco;
-
     public String nomeLocal;
     public String idLocal;
 
-
+    @Exclude
+    public Produto produto;
     @Exclude
     public Local localPromo;
 
+
+    public String getProdutoID() {
+        return produtoID;
+    }
+
+    public void setProdutoID(String produtoID) {
+        this.produtoID = produtoID;
+    }
+
+    public String getProdutoNome() {
+        return produtoNome;
+    }
+
+    public void setProdutoNome(String produtoNome) {
+        this.produtoNome = produtoNome;
+    }
 
     public String getNomeLocal() {
         return nomeLocal;
@@ -37,11 +54,14 @@ public class Promocao implements Serializable {
         this.idLocal = idLocal;
     }
 
+    @Exclude
     public Produto getProduto() {
         return produto;
     }
-
+    @Exclude
     public void setProduto(Produto produto) {
+        this.produtoID = produto.getId();
+        this.produtoNome= produto.getNome();
         this.produto = produto;
     }
 
@@ -61,10 +81,12 @@ public class Promocao implements Serializable {
         this.preco = preco;
     }
 
+    @Exclude
     public Local getLocalPromo() {
         return localPromo;
     }
 
+    @Exclude
     public void setLocalPromo(Local localPromo) {
         this.idLocal = localPromo.getId();
         this.nomeLocal = localPromo.getNome();
