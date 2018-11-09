@@ -41,10 +41,12 @@ public class Produto implements Serializable {
         this.nome = nome;
     }
 
+    @Exclude
     public Marca getMarca() {
         return marca;
     }
 
+    @Exclude
     public void setMarca(Marca marca) {
         this.idMarca = marca.getId();
         this.nomeMarca = marca.getMarca();

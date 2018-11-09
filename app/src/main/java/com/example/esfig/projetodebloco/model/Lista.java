@@ -47,6 +47,7 @@ public class Lista {
         this.nome = nome;
     }
 
+    @Exclude
     public Promocao getPromocao() {
         return promocao;
     }
@@ -55,6 +56,7 @@ public class Lista {
      * precisa preencher a promoção com produto, marca antes e preço.
      * @param promocao
      */
+    @Exclude
     public void setPromocao(Promocao promocao) {
         this.promocaoID = promocao.getId();
         this.promocaoNome = promocao.getProduto().getNome() + " " + promocao.getProduto().getMarca() + " " + promocao.getPreco();
