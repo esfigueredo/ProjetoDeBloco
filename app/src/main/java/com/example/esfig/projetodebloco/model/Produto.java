@@ -16,6 +16,8 @@ public class Produto implements Serializable {
     @Exclude
     public Marca marca;
 
+    public Produto() {
+    }
 
     public String getIdMarca() {
         return idMarca;
