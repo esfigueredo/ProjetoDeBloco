@@ -11,7 +11,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class FacebookLoginActivity extends BaseActivity implements View.OnClickListener {
-    private static final String TAG = "FacebookLogin";
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+  /*  private static final String TAG = "FacebookLogin";
 
     private TextView mStatusTextView;
     private TextView mDetailTextView;
@@ -152,4 +161,5 @@ public class FacebookLoginActivity extends BaseActivity implements View.OnClickL
         if (i == R.id.buttonFacebookSignout) {
             signOut();
     }
+    */
 }
