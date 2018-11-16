@@ -11,6 +11,10 @@ public class Lista {
     public String promocaoID;
     public String promocaoNome;
 
+
+    public Lista() {
+    }
+
     @Exclude
     public Promocao promocao;
 

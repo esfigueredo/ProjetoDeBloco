@@ -21,6 +21,8 @@ public class Promocao implements Serializable {
     @Exclude
     public Local localPromo;
 
+    public Promocao() {
+    }
 
     public String getProdutoID() {
         return produtoID;
