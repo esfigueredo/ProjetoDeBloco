@@ -14,6 +14,10 @@ public class PromocaoDAO extends ComunsDAO{
         super();
     }
 
+    public void cadastroteste(@NonNull final String Userid, @NonNull final Promocao promocao){
+        Refdatabase.child("promocao/"+Userid+"/"+promocao.getId()).setValue(promocao);
+    }
+
     public void cadastro(@NonNull final String Userid, @NonNull final Promocao promocao){
 
         produtodao.saveProduto(Userid,promocao.getProduto());
