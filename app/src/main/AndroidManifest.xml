@@ -31,7 +31,8 @@
                 android:value="com.example.esfig.projetodebloco.telasiniciais.TelaLogin" />
         </activity>
         <activity android:name=".activities.ActivityCad" />
-        <activity android:name=".telasiniciais.TelaLogin"></activity>
+        <activity android:name=".telasiniciais.TelaLogin" />
+        <activity android:name=".telasiniciais.FacebookLoginActivity"></activity>
     </application>
 
 </manifest>
