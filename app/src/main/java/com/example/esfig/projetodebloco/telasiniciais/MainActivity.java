@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.esfig.projetodebloco.BO.PromocaoBO;
+import com.example.esfig.projetodebloco.DAO.ComunsDAO;
 import com.example.esfig.projetodebloco.DAO.PromocaoDAO;
 import com.example.esfig.projetodebloco.R;
 import com.example.esfig.projetodebloco.model.Local;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         PromocaoDAO pmbo = new PromocaoDAO();
         Promocao p = new Promocao();
-        Produto p1 = new Produto();
+        /*Produto p1 = new Produto();
         Marca m = new Marca();
         Local l = new Local();
 
@@ -40,11 +41,18 @@ public class MainActivity extends AppCompatActivity {
         p.setProduto(p1);
         p.setLocalPromo(l);
 
-        pmbo.cadastro("felipe",p);
+        pmbo.cadastroteste("felipe",p);*/
 
+        ComunsDAO  cdao = new ComunsDAO();
+        try {
+            Promocao object = cdao.getObject(Promocao.class);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
 
-
-
+        ComunsDAO  cdao2 = new ComunsDAO();
 
     }
 }

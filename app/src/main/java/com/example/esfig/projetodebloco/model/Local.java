@@ -9,6 +9,9 @@ public class Local {
     public String Endereco;
     public String nome;
 
+    public Local() {
+    }
+
     public String getEndereco() {
         return Endereco;
     }

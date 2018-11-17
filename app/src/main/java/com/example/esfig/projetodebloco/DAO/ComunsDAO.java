@@ -10,21 +10,28 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ComunsDAO {
 
-    final FirebaseDatabase database;
-    final DatabaseReference Refdatabase;
+    FirebaseDatabase database;
+    DatabaseReference Refdatabase;
+    private Object obj;
 
-    public ComunsDAO(FirebaseDatabase database) {
-        this.database = FirebaseDatabase.getInstance();
-
-        Refdatabase = database.getReference();
+    public ComunsDAO() {
+        if(database == null) {
+            this.database = FirebaseDatabase.getInstance();
+        }
+        if(Refdatabase == null) {
+            Refdatabase = database.getReference();
+        }
     }
 
-    public <T>T getObject(Class<T> oclass){
-        //final T obj = oclass.newInstance();
+    public <T>T getObject(final Class<T> oclass) throws IllegalAccessException, InstantiationException {
+
         Refdatabase.addValueEventListener(new ValueEventListener() {
+
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                obj = dataSnapshot.getValue(oclass);
 
             }
 
@@ -34,7 +41,7 @@ public class ComunsDAO {
             }
         });
 
-        return null;
+        return oclass.cast(obj);
     }
 
 }
