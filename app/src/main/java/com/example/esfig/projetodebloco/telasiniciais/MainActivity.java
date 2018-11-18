@@ -14,7 +14,9 @@ import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
 import com.example.esfig.projetodebloco.model.Promocao;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public <T> void onCalback(List<T> list) {
                     findViewById(R.id.LocalId);
+                    List<Promocao> list2 = (List<Promocao>)list;
+                    List<Promocao> listfiltred =
+                            list2.stream().filter(a -> (a.getNomeMarca() != null && a.getNomeMarca().equals("asdfe")) ).collect(Collectors.toList());
                     Log.d("lista promo", list.toString());
                 }
             });
