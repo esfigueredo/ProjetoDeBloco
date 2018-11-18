@@ -33,7 +33,8 @@ public class ComunsDAO {
         }
     }
 
-    public <T> void getObject(final Class<T> oclass, final String UsertID, final String key,final FireBaseCalback fireBaseCalback) throws IllegalAccessException, InstantiationException {
+    public <T> void getObject(final Class<T> oclass, final String UsertID, final String key,final FireBaseCalback fireBaseCalback)
+            throws IllegalAccessException, InstantiationException {
         final List<T> list = new ArrayList<T>();
 
         //DatabaseReference thisref = Refdatabase.child(oclass.getSimpleName().toLowerCase()+"/UsertID");

@@ -15,6 +15,30 @@
       },
       "oauth_client": [
         {
+          "client_id": "351946204822-msb63csd41tp2h2cdul0kv5tj95bnmh1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.esfig.projetodebloco",
+            "certificate_hash": "6e8e11b43a46300169de283ca518cffc51d82d80"
+          }
+        },
+        {
+          "client_id": "351946204822-noil94f4gh0fhbvc0hj6bnoahduq1th6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.esfig.projetodebloco",
+            "certificate_hash": "bfcbfe1fe6145b9f38edcd0285ebba97266e15de"
+          }
+        },
+        {
+          "client_id": "351946204822-7vsbr1kiu03eeh3tmqnk92sqj388qpdc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.esfig.projetodebloco",
+            "certificate_hash": "1100be40b379f52ae69fb020ec299ba57f6176fb"
+          }
+        },
+        {
           "client_id": "351946204822-1pqccqc2qd3kpjqbio09b69ktk1q0fbl.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +53,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "351946204822-1pqccqc2qd3kpjqbio09b69ktk1q0fbl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
