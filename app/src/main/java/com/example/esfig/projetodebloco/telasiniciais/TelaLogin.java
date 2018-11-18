@@ -10,9 +10,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.esfig.projetodebloco.R;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
+//import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+//import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import android.app.ProgressDialog;
@@ -26,12 +26,21 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 
 public class TelaLogin extends BaseActivity implements View.OnClickListener{
+    @Override
+    public void onClick(View v) {
 
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+/*
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
     private FirebaseAuth mAuth;
     // não sei o poerque GoogleSignInClient não importa!!!
-    private GoogleSignInClient mGoogleSignInClient;
+    //private GoogleSignInClient mGoogleSignInClient;
 
     private TextView mStatusTextView;
     private TextView mDetailTextView;
@@ -51,7 +60,7 @@ public class TelaLogin extends BaseActivity implements View.OnClickListener{
                 .build();
         // [END config_signin]
 
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        //mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         // [START initialize_auth]
         // Initialize Firebase Auth
@@ -67,7 +76,7 @@ public class TelaLogin extends BaseActivity implements View.OnClickListener{
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+       // updateUI(currentUser);
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -75,18 +84,18 @@ public class TelaLogin extends BaseActivity implements View.OnClickListener{
 
         // não sei o porque o "GoogleSignIn" não funciona!!!
         if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+          //  Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 // Google Sign In was successful, authenticate with Firebase
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account);
-            } catch (ApiException e) {
+            //    GoogleSignInAccount account = task.getResult(ApiException.class);
+             //   firebaseAuthWithGoogle(account);
+          //  } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                Log.w(TAG, "Google sign in failed", e);
+          //      Log.w(TAG, "Google sign in failed", e);
                 // [START_EXCLUDE]
-                updateUI(null);
+          //      updateUI(null);
                 // [END_EXCLUDE]
-            }
+         //   }
         }
     }
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
@@ -104,12 +113,12 @@ public class TelaLogin extends BaseActivity implements View.OnClickListener{
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                          //  updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Snackbar.make(findViewById(R.id.Tela_login), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
-                            updateUI(null);
+                          //  updateUI(null);
                         }
 
                         // [START_EXCLUDE]
@@ -121,33 +130,33 @@ public class TelaLogin extends BaseActivity implements View.OnClickListener{
     // [END auth_with_google]
 
     // [START signin]
-    private void signIn() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
-    private void signOut() {
+   // private void signIn() {
+     //   Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+      //  startActivityForResult(signInIntent, RC_SIGN_IN);
+  //  }
+   // private void signOut() {
         // Firebase sign out
         mAuth.signOut();
 
         // Google sign out
-        mGoogleSignInClient.signOut().addOnCompleteListener(this,
+      //  mGoogleSignInClient.signOut().addOnCompleteListener(this,
                 new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        updateUI(null);
+                    //    updateUI(null);
                     }
-                });
-    }
-    private void revokeAccess() {
+              //  });
+    //}
+    ///private void revokeAccess() {
         // Firebase sign out
-        mAuth.signOut();
+      //  mAuth.signOut();
 
         // Google revoke access
-        mGoogleSignInClient.revokeAccess().addOnCompleteListener(this,
-                new OnCompleteListener<Void>() {
-                    @Override
+      //  mGoogleSignInClient.revokeAccess().addOnCompleteListener(this,
+             //   new OnCompleteListener<Void>() {
+             ////       @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        updateUI(null);
+                //        updateUI(null);
                     }
                 });
     }
@@ -155,17 +164,17 @@ public class TelaLogin extends BaseActivity implements View.OnClickListener{
     private void updateUI(FirebaseUser user) {
         hideProgressDialog();
         if (user != null) {
-            mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
-            mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
+          //  mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
+          //  mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
 
-            findViewById(R.id.signInButton).setVisibility(View.GONE);
-            findViewById(R.id.signOutAndDisconnect).setVisibility(View.VISIBLE);
+          //  findViewById(R.id.signInButton).setVisibility(View.GONE);
+           // findViewById(R.id.signOutAndDisconnect).setVisibility(View.VISIBLE);
         } else {
-            mStatusTextView.setText(R.string.signed_out);
+           // mStatusTextView.setText(R.string.signed_out);
             mDetailTextView.setText(null);
 
-            findViewById(R.id.signInButton).setVisibility(View.VISIBLE);
-            findViewById(R.id.signOutAndDisconnect).setVisibility(View.GONE);
+            //findViewById(R.id.signInButton).setVisibility(View.VISIBLE);
+          //  findViewById(R.id.signOutAndDisconnect).setVisibility(View.GONE);
         }
     }
 
@@ -173,7 +182,7 @@ public class TelaLogin extends BaseActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.signInButton) {
+        /*if (i == R.id.signInButton) {
             signIn();
         } else if (i == R.id.signOutButton) {
             signOut();
@@ -182,5 +191,5 @@ public class TelaLogin extends BaseActivity implements View.OnClickListener{
         }
 
 
-    }
+    }*/
 }
