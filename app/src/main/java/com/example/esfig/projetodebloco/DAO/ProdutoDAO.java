@@ -9,7 +9,7 @@ public class ProdutoDAO extends ComunsDAO{
     }
 
     public void saveProduto(String UserID, Produto produto){
-        Refdatabase.child("Produtos/"+UserID+"/"+produto.getId()).setValue(produto);
+        Refdatabase.child(produto.getClass().getSimpleName().toLowerCase()+"/"+UserID+"/"+produto.getId()).setValue(produto);
     }
 
 

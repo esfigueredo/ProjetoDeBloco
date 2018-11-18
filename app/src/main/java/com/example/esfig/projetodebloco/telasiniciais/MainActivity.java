@@ -2,15 +2,19 @@ package com.example.esfig.projetodebloco.telasiniciais;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.esfig.projetodebloco.BO.PromocaoBO;
 import com.example.esfig.projetodebloco.DAO.ComunsDAO;
 import com.example.esfig.projetodebloco.DAO.PromocaoDAO;
 import com.example.esfig.projetodebloco.R;
+import com.example.esfig.projetodebloco.Util.FireBaseCalback;
 import com.example.esfig.projetodebloco.model.Local;
 import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
 import com.example.esfig.projetodebloco.model.Promocao;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,14 +49,18 @@ public class MainActivity extends AppCompatActivity {
 
         ComunsDAO  cdao = new ComunsDAO();
         try {
-            Promocao object = cdao.getObject(Promocao.class);
+            cdao.getObject(Promocao.class, "adsde","", new FireBaseCalback() {
+                @Override
+                public <T> void onCalback(List<T> list) {
+                    findViewById(R.id.LocalId);
+                    Log.d("lista promo", list.toString());
+                }
+            });
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
-
-        ComunsDAO  cdao2 = new ComunsDAO();
 
     }
 }

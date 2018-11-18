@@ -19,7 +19,7 @@ public class MarcaDAO extends ComunsDAO{
     }
 
     public void saveMarca(String UserID, Marca marca){
-        Refdatabase.child("marcas/"+UserID+"/"+marca.getId()).setValue(marca);
+        Refdatabase.child(marca.getClass().getSimpleName().toLowerCase()+"/"+UserID+"/"+marca.getId()).setValue(marca);
     }
 
 }
