@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public <T> void onCalback(List<T> list) {
                     findViewById(R.id.LocalId);
+
                     List<Promocao> list2 = (List<Promocao>)list;
                     List<Promocao> listfiltred =
                             list2.stream().filter(a -> (a.getNomeMarca() != null && a.getNomeMarca().equals("asdfe")) ).collect(Collectors.toList());
