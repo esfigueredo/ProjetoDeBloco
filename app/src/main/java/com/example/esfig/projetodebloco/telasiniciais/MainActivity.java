@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         ComunsDAO  cdao = new ComunsDAO();
         try {
-            cdao.getObject(Promocao.class, "adsde","", new FireBaseCalback() {
+            cdao.setEventiListener(Promocao.class, "felipe","", new FireBaseCalback() {
                 @Override
                 public <T> void onCalback(List<T> list) {
                     findViewById(R.id.LocalId);
@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
+
+
 
     }
 }
