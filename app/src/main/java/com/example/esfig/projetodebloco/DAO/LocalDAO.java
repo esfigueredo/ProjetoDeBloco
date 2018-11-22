@@ -9,7 +9,7 @@ public class LocalDAO extends ComunsDAO{
     }
 
     public void saveLocal(String UserID, Local local){
-        Refdatabase.child("local/"+UserID+"/"+local.getId()).setValue(local);
+        Refdatabase.child(local.getClass().getSimpleName().toLowerCase()+"/"+UserID+"/"+local.getId()).setValue(local);
     }
 
 }

@@ -28,7 +28,9 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
-        <string name="facebook_app_id">[APP_ID]</string> <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
+        <string name="facebook_app_id">[APP_ID]</string>
+        <string name="fb_login_protocol_scheme">fb[APP_ID]</string>
     </string>
     <string name="loading" />
+    <string name="sign_in_with_google">Sign In with Google</string>
 </resources>

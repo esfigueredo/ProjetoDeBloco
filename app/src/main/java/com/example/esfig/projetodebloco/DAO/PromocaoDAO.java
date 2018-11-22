@@ -23,7 +23,7 @@ public class PromocaoDAO extends ComunsDAO{
         produtodao.saveProduto(Userid,promocao.getProduto());
         marcadao.saveMarca(Userid,promocao.getProduto().getMarca());
         localdao.saveLocal(Userid,promocao.getLocalPromo());
-        Refdatabase.child("promocao/"+Userid+"/"+promocao.getId()).setValue(promocao);
+        Refdatabase.child(promocao.getClass().getSimpleName().toLowerCase()+"/"+Userid+"/"+promocao.getId()).setValue(promocao);
 
     }
 

@@ -2,11 +2,13 @@ package com.example.esfig.projetodebloco.telasiniciais;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.esfig.projetodebloco.BO.PromocaoBO;
 import com.example.esfig.projetodebloco.DAO.ComunsDAO;
 import com.example.esfig.projetodebloco.DAO.PromocaoDAO;
 import com.example.esfig.projetodebloco.R;
+import com.example.esfig.projetodebloco.Util.FireBaseCalback;
 import com.example.esfig.projetodebloco.model.Local;
 import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
@@ -45,14 +47,24 @@ public class MainActivity extends AppCompatActivity {
 
         ComunsDAO  cdao = new ComunsDAO();
         try {
-            Promocao object = cdao.getObject(Promocao.class);
+            cdao.setEventiListener(Promocao.class, "felipe","", new FireBaseCalback() {
+                @Override
+                public <T> void onCalback(List<T> list) {
+                    findViewById(R.id.LocalId);
+
+                    List<Promocao> list2 = (List<Promocao>)list;
+                    List<Promocao> listfiltred =
+                            list2.stream().filter(a -> (a.getNomeMarca() != null && a.getNomeMarca().equals("asdfe")) ).collect(Collectors.toList());
+                    Log.d("lista promo", list.toString());
+                }
+            });
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
 
-        ComunsDAO  cdao2 = new ComunsDAO();
+
 
     }
 }
