@@ -1,16 +1,59 @@
 package com.example.esfig.projetodebloco.activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatAutoCompleteTextView;
+import android.view.View;
+import android.widget.AdapterView;
+
+import com.example.esfig.projetodebloco.Adapters.ProdutoAutocompleatAdapter;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import com.example.esfig.projetodebloco.R;
+import com.example.esfig.projetodebloco.model.Produto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ActivityCad extends AppCompatActivity {
+
+    private AppCompatAutoCompleteTextView autoTextViewCustom;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
+
+        List<Produto> lp = new ArrayList<>();
+        Produto p = new Produto();
+        p.setId("325");
+        p.setIdMarca("555");
+        p.setNome("banana");
+        p.setNomeMarca("loreal");
+        lp.add(p);
+        Produto p1 = new Produto();
+        p1.setId("325");
+        p1.setIdMarca("555");
+        p1.setNome("banana");
+        p1.setNomeMarca("loreal");
+        lp.add(p1);
+
+
+        autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
+
+        ProdutoAutocompleatAdapter produtoAdapter = new ProdutoAutocompleatAdapter(this, R.layout.row_produto_autocompleate, lp);
+        autoTextViewCustom.setThreshold(1);
+        autoTextViewCustom.setAdapter(produtoAdapter);
+// handle click event and set desc on textview
+        autoTextViewCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Produto produto = (Produto) adapterView.getItemAtPosition(i);
+                autoTextViewCustom.setText(produto.getNome());
+            }
+        });
+
 
         // Get a reference to the AutoCompleteTextView in the layout
         AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.ProdutoId);
@@ -40,33 +83,15 @@ public class ActivityCad extends AppCompatActivity {
         textView2.setAdapter(adapter2);
     }
 
+    View.OnClickListener saveClick = new View.OnClickListener(){
+
+
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
+
+
+
 }
-
-
-     /*TODO: 22/11/2018
-     //Nothing special, create database reference.
-   // DatabaseReference database = FirebaseDatabase.getInstance().getReference(); //
-    //Create a new ArrayAdapter with your context and the simple layout for the dropdown menu provided by Android
-     final ArrayAdapter<String> autoComplete = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1); //
-      Child the root before all the push() keys are found and add a ValueEventListener()
-        database.child("felipe").
-
-                addValueEventListener(new ValueEventListener() {
-@Override
-public void onDataChange(DataSnapshot datasnapshot) {
-        //Basically, this says "For each DataSnapshot *Data* in dataSnapshot, do what's inside the method.
-        for (DataSnapshot suggestionSnapshot : datasnapshot.getChildren()) {
-        //Get the suggestion by childing the key of the string you want to get.
-        String suggestion = suggestionSnapshot.child("produto").getValue(String.class);
-        //Add the retrieved string to the list
-        autoComplete.add(suggestion);
-
-        }
-        }
-
-@Override
-public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        AutoCompleteTextView ACTV = (AutoCompleteTextView) findViewById(R.id.ProdutoId);
-        ACTV.setAdapter(autoComplete);
-        }

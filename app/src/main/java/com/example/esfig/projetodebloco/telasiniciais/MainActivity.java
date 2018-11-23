@@ -14,7 +14,6 @@ import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
 import com.example.esfig.projetodebloco.model.Promocao;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
