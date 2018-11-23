@@ -18,9 +18,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".telasiniciais.SplashScreen">
-
-        </activity>
-        <activity android:name=".activities.ActivityCad">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,8 +30,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.esfig.projetodebloco.telasiniciais.TelaLogin" />
         </activity>
+        <activity android:name=".activities.ActivityCad" />
         <activity android:name=".telasiniciais.TelaLogin" />
-        <activity android:name=".telasiniciais.FacebookLoginActivity"></activity>
+        <activity android:name=".telasiniciais.FirebaseUIActivity"></activity>
     </application>
 
 </manifest>
