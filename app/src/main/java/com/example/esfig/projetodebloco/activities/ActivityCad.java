@@ -1,17 +1,23 @@
 package com.example.esfig.projetodebloco.activities;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
 import com.example.esfig.projetodebloco.Adapters.ProdutoAutocompleatAdapter;
+import com.example.esfig.projetodebloco.DAO.ComunsDAO;
 import com.example.esfig.projetodebloco.R;
+import com.example.esfig.projetodebloco.Util.FireBaseCalback;
 import com.example.esfig.projetodebloco.model.Produto;
+import com.example.esfig.projetodebloco.model.Promocao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ActivityCad extends AppCompatActivity {
 
@@ -23,7 +29,7 @@ public class ActivityCad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        List<Produto> lp = new ArrayList<>();
+        /*List<Produto> lp = new ArrayList<>();
         Produto p = new Produto();
         p.setId("325");
         p.setIdMarca("555");
@@ -33,24 +39,43 @@ public class ActivityCad extends AppCompatActivity {
         Produto p1 = new Produto();
         p1.setId("325");
         p1.setIdMarca("555");
-        p1.setNome("banana");
+        p1.setNome("cenora");
         p1.setNomeMarca("loreal");
-        lp.add(p1);
+        lp.add(p1);*/
 
 
-        autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
+        ComunsDAO cdao = new ComunsDAO();
+        Context c = this;
+        try {
+            cdao.setEventiListener(Produto.class, "felipe","", new FireBaseCalback() {
+                @Override
+                public <T> void onCalback(List<T> list) {
+                    findViewById(R.id.LocalId);
 
-        ProdutoAutocompleatAdapter produtoAdapter = new ProdutoAutocompleatAdapter(this, R.layout.row_produto_autocompleate, lp);
-        autoTextViewCustom.setThreshold(1);
-        autoTextViewCustom.setAdapter(produtoAdapter);
-// handle click event and set desc on textview
-        autoTextViewCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Produto produto = (Produto) adapterView.getItemAtPosition(i);
-                autoTextViewCustom.setText(produto.getNome());
-            }
-        });
+                    List<Produto> lp = (ArrayList<Produto>)list;
+
+                    autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
+
+                    ProdutoAutocompleatAdapter produtoAdapter = new ProdutoAutocompleatAdapter(c, R.layout.row_produto_autocompleate, lp);
+                    autoTextViewCustom.setThreshold(1);
+                    autoTextViewCustom.setAdapter(produtoAdapter);
+                    // handle click event and set desc on textview
+                    autoTextViewCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Produto produto = (Produto) adapterView.getItemAtPosition(i);
+                            autoTextViewCustom.setText(produto.getNome());
+                        }
+                    });
+
+
+                }
+            });
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
 
     }
 

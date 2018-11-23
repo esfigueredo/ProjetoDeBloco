@@ -22,41 +22,59 @@ public class ProdutoAutocompleatAdapter extends ArrayAdapter<Produto> {
 
     //https://medium.com/@droidbyme/autocomplete-textview-in-android-a1bf5fc112f6
 
-    List<Produto> list_produto, suggestions;
+    private Context context;
+    List<Produto> list_produto,tempItems, suggestions;
     int resourceID;
 
     public ProdutoAutocompleatAdapter(@NonNull Context context, int resource) {
         super(context, resource);
         resourceID = resource;
+        this.context = context;
+        suggestions = new ArrayList<>();
+
     }
 
     public ProdutoAutocompleatAdapter(@NonNull Context context, int resource, int textViewResourceId) {
         super(context, resource, textViewResourceId);
         resourceID = resource;
+        this.context = context;
+        suggestions = new ArrayList<>();
     }
 
     public ProdutoAutocompleatAdapter(@NonNull Context context, int resource, @NonNull Produto[] objects) {
         super(context, resource, objects);
         list_produto = Arrays.asList(objects);
         resourceID = resource;
+        this.context = context;
+        suggestions = new ArrayList<>();
+        tempItems = new ArrayList<>(list_produto);
     }
 
     public ProdutoAutocompleatAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull Produto[] objects) {
         super(context, resource, textViewResourceId, objects);
         list_produto = Arrays.asList(objects);
         resourceID = resource;
+        this.context = context;
+        suggestions = new ArrayList<>();
+        tempItems = new ArrayList<>(list_produto);
     }
 
     public ProdutoAutocompleatAdapter(@NonNull Context context, int resource, @NonNull List<Produto> objects) {
         super(context, resource, objects);
         list_produto = objects;
+        this.context = context;
         resourceID = resource;
+        suggestions = new ArrayList<>();
+        tempItems = new ArrayList<>(list_produto);
     }
 
     public ProdutoAutocompleatAdapter(@NonNull Context context, int resource, int textViewResourceId, @NonNull List<Produto> objects) {
         super(context, resource, textViewResourceId, objects);
         list_produto = objects;
+        this.context = context;
         resourceID = resource;
+        suggestions = new ArrayList<>();
+        tempItems = new ArrayList<>(list_produto);
     }
 
     @NonNull
@@ -65,7 +83,7 @@ public class ProdutoAutocompleatAdapter extends ArrayAdapter<Produto> {
         View view = convertView;
         try {
             if (convertView == null) {
-                LayoutInflater inflater = ((Activity) getContext()).getLayoutInflater();
+                LayoutInflater inflater = ((Activity) context).getLayoutInflater();
                 view = inflater.inflate(resourceID, parent, false);
             }
             Produto produto = getItem(position);
@@ -112,7 +130,7 @@ public class ProdutoAutocompleatAdapter extends ArrayAdapter<Produto> {
         protected FilterResults performFiltering(CharSequence constraint) {
             if (constraint != null) {
                 suggestions.clear();
-                for (Produto fruit: list_produto) {
+                for (Produto fruit: tempItems) {
                     if (fruit.getNome().toLowerCase().startsWith(constraint.toString().toLowerCase())) {
                         suggestions.add(fruit);
                     }
