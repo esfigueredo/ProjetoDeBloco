@@ -3,7 +3,7 @@
 
     <string-array name="produto_array">
 
-        <item>X-BOX 360</item>
+        <item>X-BOX 36O</item>
         <item>X-BOX ONE</item>
         <item>X-BOX S</item>
         <item>PS4 SONY</item>
@@ -15,61 +15,59 @@
         <item>Apple iPod</item>
         <item>Audio Highway Listen Up</item>
         <item>Bose Noise-Canceling Headphones</item>
-        <item>Diamond Rio PMP300</item>
-        <item>Genica GN803 Tavarua</item>
+        <item>Genica Tavarua</item>
         <item>Logitech Harmony</item>
         <item>Mattel Electronics Football</item>
         <item>MusicGremlin Wi-Fi MP3 Player</item>
         <item>Game Boy Nintendo</item>
         <item>Optical Media</item>
-        <item>Panasonic DVD-L10</item>
+        <item>Panasonic DVD</item>
         <item>Regency TR-1</item>
-        <item>Sony Discman D-50</item>
+        <item>Sony Discman </item>
         <item>Sony Walkman TPS-L2</item>
         <item>Sony Watchman</item>
         <item>TiVo</item>
         <item>Zenith Space Command</item>
         <item>Apple AirPort</item>
         <item>Apple iPad</item>
-        <item>Apple PowerBook 100</item>
-        <item>Asus Eee PC 700</item>
+        <item>Apple PowerBook </item>
+        <item>Asus Eee PC </item>
         <item>Commodore 64</item>
         <item>Connectix QuickCam</item>
         <item>DiskOnKey</item>
         <item>Engelbart Mouse</item>
-        <item>Epson HX-20</item>
-        <item>GRiD Compass 1101</item>
+        <item>Epson </item>
+        <item>GRiD Compass </item>
         <item>Hewlett-Packard HP-65</item>
         <item>Iomega Zip Drive</item>
         <item>LED</item>
         <item>Lego</item>
         <item>MicroSD</item>
-        <item>MITS Altair 8800</item>
-        <item>Radio Shack TRS-80 Model 100</item>
-        <item>Texas Instruments SR-10</item>
+        <item>MITS Altair </item>
+        <item>Radio Shack TRS-8 Model </item>
+        <item>Texas Instruments SR-1</item>
         <item>Apple iPhone</item>
         <item>Ballpoint Pen</item>
-        <item>Bell 103</item>
+        <item>Bell </item>
         <item>Bellsouth IBM Simon</item>
-        <item>BlackBerry 6210</item>
+        <item>BlackBerry </item>
         <item>Bluetooth Headset</item>
         <item>Danger Hiptop, a.k.a. Sidekick</item>
         <item>Fisher AG7 Space Pen</item>
-        <item>Motorola DynaTAC 8000x</item>
-        <item>Motorola Handie-Talkie HT 220 Slimline</item>
-        <item>Motorola PageWriter 2000</item>
+        <item>Motorola DynaTAC </item>
+        <item>Motorola Handie-Talkie  Slimline</item>
+        <item>Motorola PageWriter </item>
         <item>Motorola Razr V3</item>
         <item>Motorola StarTac</item>
         <item>Novatel Wireless MiFi</item>
         <item>Olympus Zuiko Pearlcorder</item>
         <item>Pager</item>
-        <item>Palm Pilot 1000</item>
-        <item>PhoneMate Model 400</item>
+        <item>Palm Pilot </item>
+        <item>PhoneMate Model </item>
         <item>Samsung Uproar</item>
-        <item>Sharp J-SH04</item>
         <item>Speak e Spell</item>
-        <item>Air Taser Model 34000</item>
-        <item>Casio G-Shock DW-5000C</item>
+        <item>Air Taser Model </item>
+        <item>Casio G-Shock </item>
         <item>The Clapper</item>
         <item>Credit Card</item>
         <item>Dyson Air Multiplier</item>
@@ -78,21 +76,21 @@
         <item>Hamilton Pulsar</item>
         <item>Leatherman</item>
         <item>Lithium-Ion Batteries</item>
-        <item>Magellan NAV 1000</item>
+        <item>Magellan NAV </item>
         <item>Spot Personal Tracker</item>
         <item>Velcro</item>
         <item>Zippo</item>
-        <item>Apple QuickTake 100</item>
+        <item>Apple QuickTake </item>
         <item>Canon EOS 5D Mark II</item>
         <item>Eye-Fi</item>
         <item>Flip</item>
         <item>Fujifilm Quick Snap Disposable Camera</item>
         <item>Kodak EasyShare One</item>
-        <item>Kodak Instamatic 100</item>
+        <item>Kodak Instamatic </item>
         <item>Nikon F</item>
-        <item>Pentax K1000</item>
-        <item>Polaroid SX-70</item>
-        <item>Sony Betamovie BMC-100P</item>
+        <item>Pentax </item>
+        <item>Polaroid </item>
+        <item>Sony Betamovie </item>
         <item>Sony Mavica MVC-FD5</item>
         <item>Black e Decker Cordless Electric Drill</item>
         <item>Clock Radio</item>
@@ -113,9 +111,9 @@
         <item>SteriPEN</item>
         <item>Apple Newton</item>
         <item>Atari Lynx</item>
-        <item>Sony LIBRIé EBR-1000EP</item>
-        <item>Archos Gmini 400</item>
-        <item>Psion MC 400</item>
+        <item>Sony LIBRIE EBR</item>
+        <item>Archos Gmini </item>
+        <item>Psion MC </item>
         <item>ASPIRADOR DE PÓ</item>
         <item>FERRO DE PASSAR ROUPA</item>
         <item>MÁQUINA DE LAVAR ROUPA</item>
@@ -148,14 +146,14 @@
         <item>Descascador de legumes</item>
         <item>Escumadeira</item>
         <item>Espátula</item>
-        <item>Garfão (garfo longo)</item>
+        <item>Garfao garfo longo</item>
         <item>Jarra medidora</item>
         <item>Jogo de facas para cozinha (dois tamanhos)</item>
         <item>Luva térmica</item>
         <item>Pão duro pequeno e médio</item>
         <item>Pincel</item>
         <item>Ralador triangular de inox</item>
-        <item>Três tábuas para carne, legumes, e frutas</item>
+        <item>Tábuas para carne legumes e frutas</item>
         <item>Peneiras</item>
         <item>Caldeirão</item>
         <item>Cortador de ovos cozidos</item>
@@ -165,7 +163,7 @@
         <item>Descaroçador de azeitonas</item>
         <item>Descaroçador de maçã</item>
         <item>Foie</item>
-        <item>Porta- condimentos</item>
+        <item>Porta-condimentos</item>
         <item>Ralador e fatiador de legumes</item>
         <item>Rolo de abrir massa</item>
         <item>Tesoura trinchante de frango</item>
@@ -303,7 +301,7 @@
         <item>Vassoura de pelo só para varrer a sala e os quartos</item>
         <item>Vassoura de piaçava</item>
         <item>Vassoura mágica ou aspirador de pó</item>
-        <item>Recipiente Plástico</item>
+        <item>Recipiente Plastico</item>
         <item>Escova para limpar dentro de bacia</item>
         <item>Esponja multiuso</item>
         <item>Pano de chão</item>
