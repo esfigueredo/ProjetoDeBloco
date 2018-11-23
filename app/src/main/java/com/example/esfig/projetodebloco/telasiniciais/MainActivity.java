@@ -1,5 +1,6 @@
 package com.example.esfig.projetodebloco.telasiniciais;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         pmbo.cadastroteste("felipe",p);*/
 
         ComunsDAO  cdao = new ComunsDAO();
+
         try {
             cdao.setEventiListener(Promocao.class, "felipe","", new FireBaseCalback() {
                 @Override

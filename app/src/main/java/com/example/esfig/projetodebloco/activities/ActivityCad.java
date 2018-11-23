@@ -1,19 +1,21 @@
 package com.example.esfig.projetodebloco.activities;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.example.esfig.projetodebloco.Adapters.MarcaAutocompleteAdapter;
 import com.example.esfig.projetodebloco.Adapters.ProdutoAutocompleatAdapter;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+import com.example.esfig.projetodebloco.DAO.ComunsDAO;
 import com.example.esfig.projetodebloco.R;
+import com.example.esfig.projetodebloco.Util.FireBaseCalback;
+import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class ActivityCad extends AppCompatActivity {
 
@@ -25,7 +27,7 @@ public class ActivityCad extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        List<Produto> lp = new ArrayList<>();
+        /*List<Produto> lp = new ArrayList<>();
         Produto p = new Produto();
         p.setId("325");
         p.setIdMarca("555");
@@ -35,52 +37,57 @@ public class ActivityCad extends AppCompatActivity {
         Produto p1 = new Produto();
         p1.setId("325");
         p1.setIdMarca("555");
-        p1.setNome("banana");
+        p1.setNome("cenora");
         p1.setNomeMarca("loreal");
-        lp.add(p1);
+        lp.add(p1);*/
 
 
-        autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
+        ComunsDAO cdao = new ComunsDAO();
+        //Context c = this;
+        try {
+            cdao.setEventiListener(Produto.class, "felipe","", new FireBaseCalback() {
+                @Override
+                public <T> void onCalback(List<T> list) {
+                    findViewById(R.id.LocalId);
 
-        ProdutoAutocompleatAdapter produtoAdapter = new ProdutoAutocompleatAdapter(this, R.layout.row_produto_autocompleate, lp);
-        autoTextViewCustom.setThreshold(1);
-        autoTextViewCustom.setAdapter(produtoAdapter);
-// handle click event and set desc on textview
-        autoTextViewCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Produto produto = (Produto) adapterView.getItemAtPosition(i);
-                autoTextViewCustom.setText(produto.getNome());
-            }
-        });
+                    List<Produto> lp = (ArrayList<Produto>)list;
+                    List<Marca> lm = (ArrayList<Marca>)list;
 
+                    autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
+                    autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.marcadoprodutoId);
 
-        // Get a reference to the AutoCompleteTextView in the layout
-        AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.ProdutoId);
-        // Get the string array
-        String[] produto = getResources().getStringArray(R.array.produto_array);
-        // Create the adapter and set it to the AutoCompleteTextView
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, produto);
-        textView.setAdapter(adapter);
+                    ProdutoAutocompleatAdapter produtoAdapter = new ProdutoAutocompleatAdapter(ActivityCad.this, R.layout.row_produto_autocompleate, lp);
+                    autoTextViewCustom.setThreshold(1);
+                    autoTextViewCustom.setAdapter(produtoAdapter);
+                    // handle click event and set desc on textview
+                    autoTextViewCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Produto produto = (Produto) adapterView.getItemAtPosition(i);
+                            autoTextViewCustom.setText(produto.getNome());
+                        }
+                    });
 
-        // Get a reference to the AutoCompleteTextView in the layout
-        AutoCompleteTextView textView1 = (AutoCompleteTextView) findViewById(R.id.marcadoprodutoId);
-        // Get the string array
-        String[] marcas = getResources().getStringArray(R.array.marca_array);
-        // Create the adapter and set it to the AutoCompleteTextView
-        ArrayAdapter<String> adapter1 =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, marcas);
-        textView1.setAdapter(adapter1);
+                    MarcaAutocompleteAdapter marcaAdapter = new MarcaAutocompleteAdapter(ActivityCad.this, R.layout.row_marca_autocomplete, lm);
+                    autoTextViewCustom.setThreshold(1);
+                    autoTextViewCustom.setAdapter(marcaAdapter);
+                    // handle click event and set desc on textview
+                    autoTextViewCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Marca marca = (Marca) adapterView.getItemAtPosition(i);
+                            autoTextViewCustom.setText(marca.getMarca());
+                        }
+                    });
 
-        // Get a reference to the AutoCompleteTextView in the layout
-        AutoCompleteTextView textView2 = (AutoCompleteTextView) findViewById(R.id.LocalId);
-        // Get the string array
-        String[] locais1 = getResources().getStringArray(R.array.Locais_array);
-        // Create the adapter and set it to the AutoCompleteTextView
-        ArrayAdapter<String> adapter2 =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, locais1);
-        textView2.setAdapter(adapter2);
+                }
+            });
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+
     }
 
     View.OnClickListener saveClick = new View.OnClickListener(){
