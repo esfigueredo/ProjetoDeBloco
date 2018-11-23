@@ -1,23 +1,21 @@
 package com.example.esfig.projetodebloco.activities;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.example.esfig.projetodebloco.Adapters.MarcaAutocompleteAdapter;
 import com.example.esfig.projetodebloco.Adapters.ProdutoAutocompleatAdapter;
 import com.example.esfig.projetodebloco.DAO.ComunsDAO;
 import com.example.esfig.projetodebloco.R;
 import com.example.esfig.projetodebloco.Util.FireBaseCalback;
+import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
-import com.example.esfig.projetodebloco.model.Promocao;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ActivityCad extends AppCompatActivity {
 
@@ -53,8 +51,10 @@ public class ActivityCad extends AppCompatActivity {
                     findViewById(R.id.LocalId);
 
                     List<Produto> lp = (ArrayList<Produto>)list;
+                    List<Marca> lm = (ArrayList<Marca>)list;
 
                     autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
+                    autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.marcadoprodutoId);
 
                     ProdutoAutocompleatAdapter produtoAdapter = new ProdutoAutocompleatAdapter(ActivityCad.this, R.layout.row_produto_autocompleate, lp);
                     autoTextViewCustom.setThreshold(1);
@@ -68,6 +68,17 @@ public class ActivityCad extends AppCompatActivity {
                         }
                     });
 
+                    MarcaAutocompleteAdapter marcaAdapter = new MarcaAutocompleteAdapter(ActivityCad.this, R.layout.row_marca_autocomplete, lm);
+                    autoTextViewCustom.setThreshold(1);
+                    autoTextViewCustom.setAdapter(marcaAdapter);
+                    // handle click event and set desc on textview
+                    autoTextViewCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Marca marca = (Marca) adapterView.getItemAtPosition(i);
+                            autoTextViewCustom.setText(marca.getMarca());
+                        }
+                    });
 
                 }
             });
