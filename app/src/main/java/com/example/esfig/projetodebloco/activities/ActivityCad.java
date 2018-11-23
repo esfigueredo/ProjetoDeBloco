@@ -53,7 +53,6 @@ public class ActivityCad extends AppCompatActivity {
                     List<Produto> lp = (ArrayList<Produto>) list;
 
                     autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
-                    autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.marcadoprodutoId);
 
                     ProdutoAutocompleatAdapter produtoAdapter = new ProdutoAutocompleatAdapter(ActivityCad.this, R.layout.row_produto_autocompleate, lp);
                     autoTextViewCustom.setThreshold(1);
