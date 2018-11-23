@@ -45,7 +45,7 @@ public class ActivityCad extends AppCompatActivity {
 
 
         ComunsDAO cdao = new ComunsDAO();
-        Context c = this;
+        //Context c = this;
         try {
             cdao.setEventiListener(Produto.class, "felipe","", new FireBaseCalback() {
                 @Override
@@ -56,7 +56,7 @@ public class ActivityCad extends AppCompatActivity {
 
                     autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
 
-                    ProdutoAutocompleatAdapter produtoAdapter = new ProdutoAutocompleatAdapter(c, R.layout.row_produto_autocompleate, lp);
+                    ProdutoAutocompleatAdapter produtoAdapter = new ProdutoAutocompleatAdapter(ActivityCad.this, R.layout.row_produto_autocompleate, lp);
                     autoTextViewCustom.setThreshold(1);
                     autoTextViewCustom.setAdapter(produtoAdapter);
                     // handle click event and set desc on textview
