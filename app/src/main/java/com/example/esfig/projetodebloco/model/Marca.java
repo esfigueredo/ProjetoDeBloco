@@ -8,17 +8,17 @@ import java.io.Serializable;
 public class Marca implements Serializable {
 
     public String id;
-    public String Marca;
+    public String marcanome;
 
     public Marca() {
     }
 
     public String getMarca() {
-        return Marca;
+        return marcanome;
     }
 
     public void setMarca(String marca) {
-        Marca = marca;
+        marcanome = marca;
     }
 
     public String getId() {
