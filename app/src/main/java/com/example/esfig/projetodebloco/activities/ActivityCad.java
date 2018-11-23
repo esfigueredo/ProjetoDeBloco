@@ -45,13 +45,12 @@ public class ActivityCad extends AppCompatActivity {
         ComunsDAO cdao = new ComunsDAO();
         //Context c = this;
         try {
-            cdao.setEventiListener(Produto.class, "felipe","", new FireBaseCalback() {
+            cdao.setEventiListener(Produto.class, "felipe", "", new FireBaseCalback() {
                 @Override
                 public <T> void onCalback(List<T> list) {
                     findViewById(R.id.LocalId);
 
-                    List<Produto> lp = (ArrayList<Produto>)list;
-                    List<Marca> lm = (ArrayList<Marca>)list;
+                    List<Produto> lp = (ArrayList<Produto>) list;
 
                     autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
                     autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.marcadoprodutoId);
@@ -67,6 +66,16 @@ public class ActivityCad extends AppCompatActivity {
                             autoTextViewCustom.setText(produto.getNome());
                         }
                     });
+                }
+            });
+
+            cdao.setEventiListener(Marca.class, "felipe","", new FireBaseCalback() {
+                @Override
+                public <T> void onCalback(List<T> list) {
+                    findViewById(R.id.LocalId);
+
+                    List<Marca> lm = (ArrayList<Marca>)list;
+                    autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.marcadoprodutoId);
 
                     MarcaAutocompleteAdapter marcaAdapter = new MarcaAutocompleteAdapter(ActivityCad.this, R.layout.row_marca_autocomplete, lm);
                     autoTextViewCustom.setThreshold(1);
@@ -79,26 +88,13 @@ public class ActivityCad extends AppCompatActivity {
                             autoTextViewCustom.setText(marca.getMarca());
                         }
                     });
-
                 }
             });
+
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
-
     }
-
-    View.OnClickListener saveClick = new View.OnClickListener(){
-
-
-        @Override
-        public void onClick(View v) {
-
-        }
-    };
-
-
-
 }
