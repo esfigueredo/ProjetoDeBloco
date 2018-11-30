@@ -34,20 +34,13 @@ dependencies {
     implementation 'com.android.support:support-v4:27.0.0'
     implementation 'com.android.support:design:27.0.2'
 
-    implementation 'com.facebook.android:facebook-core:[4,5)'
-    implementation 'com.facebook.android:facebook-login:[4,5)'
-    implementation 'com.facebook.android:facebook-share:[4,5)'
-    implementation 'com.facebook.android:facebook-places:[4,5)'
-    implementation 'com.facebook.android:facebook-messenger:[4,5)'
-    implementation 'com.facebook.android:facebook-applinks:[4,5)'
 
-
-    /dependencias google/
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
-    implementation 'com.google.android.gms:play-services-analytics:16.0.5'
-    /dependencias google/
+    
 
+
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

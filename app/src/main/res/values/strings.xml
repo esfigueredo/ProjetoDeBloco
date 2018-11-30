@@ -107,7 +107,12 @@
     </string>
     <string name="loading" />
     <string name="sign_in_with_google">Sign In with Google</string>
-    <string name="signed_out">logout</string>
+
     <string name="sign_out_with_google">logout</string>
     <string name="Disconect">Disconect</string>
+    <string name="not_revoke">disconeted</string>
+    <string name="not_sign_in">nao foi possivel desconectar</string>
+    <string name="revoke">revoke</string>
+    <string name="log_out">log_out1</string>
+    <string name="not_log_in">not log in</string>
 </resources>

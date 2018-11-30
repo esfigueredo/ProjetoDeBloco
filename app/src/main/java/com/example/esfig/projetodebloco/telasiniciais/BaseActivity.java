@@ -3,11 +3,11 @@ package com.example.esfig.projetodebloco.telasiniciais;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.example.esfig.projetodebloco.R;
 import com.google.android.gms.common.util.VisibleForTesting;
-import com.google.firebase.database.core.view.View;
 
 public class BaseActivity extends AppCompatActivity {
 

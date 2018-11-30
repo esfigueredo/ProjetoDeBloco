@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.esfig.projetodebloco.R;
-import com.firebase.ui.auth.AuthUI;
+//import com.firebase.ui.auth.AuthUI;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +17,7 @@ public class FirebaseUIActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.firebase_ui_activity);
-        public void createSignInIntent() {
+       /* public void createSignInIntent() {
             // [START auth_fui_create_intent]
             // Choose authentication providers
             List<AuthUI.IdpConfig> providers = Arrays.asList(
@@ -37,5 +37,5 @@ public class FirebaseUIActivity extends AppCompatActivity {
             // [END auth_fui_create_intent]
         }
 
-    }
+    */}
 }
