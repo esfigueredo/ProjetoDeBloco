@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="marca_array">
+
+        <item>CLINICAR</item>
+        <item>MICROSOFT</item>
+        <item>APPLE</item>
+        <item>PHILIPS DO BRASIL</item>
+        <item>PHILIPS</item>
+        <item>HONDA</item>
+        <item>SANSUNG</item>
+        <item>GOOGLE</item>
+        <item>AUTOMAÇÃO</item>
+        <item>BRASIL</item>
+        <item>AMAZON</item>
+        <item>NETFLIX</item>
+        <item>CeA</item>
+        <item>COLORTECH DA AMAZONIA</item>
+        <item>NAUTICA AMAPARI</item>
+        <item>SCHINCARIOL</item>
+        <item>DAKOTA</item>
+        <item>MACANN IND. E COM. LTDA. </item>
+        <item>RENNER</item>
+        <item>TINABRAS IND. E COM. LTDA.</item>
+        <item>WESTERN POOLS IND. COM. ARTEF. CIMENTO LTDA. </item>
+        <item>ATUAL SERV. TRANSP. RAP. LTDA. </item>
+        <item>CAJAMAR- S.PAULO- EXPRESSO </item>
+        <item>ASA SERVS. DE LIMPEZA LTDA. </item>
+        <item>IMPACTA S/A. IND. E COM. </item>
+        <item>SUDAMAX IND. E COM. DE CIGARROS LTDA. </item>
+        <item>CRISTALE RECURSOS HUMANOS E ASSES. LTDA. </item>
+        <item>GETAL RECURSOS HUMANOS LTDA. </item>
+        <item>ELETROMECÂNICA HERTZWALOM LTDA </item>
+        <item>IND. E COM. DE AUTO PEÇAS REI LTDA. </item>
+        <item>BOLSONARO 2018</item>
+        <item>LULA NA CADEIA</item>
+
+
+
+</string-array>
+</resources>
+

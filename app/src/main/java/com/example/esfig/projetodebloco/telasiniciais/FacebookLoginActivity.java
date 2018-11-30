@@ -1,26 +1,31 @@
 package com.example.esfig.projetodebloco.telasiniciais;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.esfig.projetodebloco.R;
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class FacebookLoginActivity extends BaseActivity implements View.OnClickListener {
-    @Override
-    public void onClick(View v) {
-
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
-    }
-  /*  private static final String TAG = "FacebookLogin";
+    private static final String TAG = "FacebookLogin";
 
     private TextView mStatusTextView;
     private TextView mDetailTextView;
@@ -32,9 +37,10 @@ public class FacebookLoginActivity extends BaseActivity implements View.OnClickL
     private CallbackManager mCallbackManager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_facebook_login);
+        setContentView(R.layout.activity_facebook);
+
         // Views
         mStatusTextView = findViewById(R.id.status);
         mDetailTextView = findViewById(R.id.detail);
@@ -75,6 +81,7 @@ public class FacebookLoginActivity extends BaseActivity implements View.OnClickL
         });
         // [END initialize_fblogin]
     }
+
     // [START on_start_check_user]
     @Override
     public void onStart() {
@@ -152,14 +159,11 @@ public class FacebookLoginActivity extends BaseActivity implements View.OnClickL
         }
     }
 
-
-
-
     @Override
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.buttonFacebookSignout) {
             signOut();
+        }
     }
-    */
 }
