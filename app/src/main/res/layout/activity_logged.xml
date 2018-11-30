@@ -20,8 +20,8 @@
 
         <ImageView
             android:id="@+id/photoImageView"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
             android:layout_margin="8dp"/>
 
         <TextView
@@ -46,17 +46,36 @@
             android:textSize="4sp"
             />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/mainMenu"
+        style="@style/Widget.AppCompat.ButtonBar.AlertDialog"
+        android:shadowRadius="@integer/google_play_services_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:text="VA PARA O MENU"
+        android:paddingBottom="10dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:onClick="goMenu"
+        />
+
+
     <Button
         android:text="@string/log_out"
+        android:shadowRadius="@integer/google_play_services_version"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:paddingBottom="10dp"
         android:onClick="LogOut"/>
     <Button
         android:text="@string/revoke"
         android:layout_width="match_parent"
+        android:shadowRadius="@integer/google_play_services_version"
         android:layout_height="wrap_content"
         style="@style/Widget.AppCompat.Button.Borderless"
+        android:paddingBottom="10dp"
         android:onClick="Revoke"
         />
 
