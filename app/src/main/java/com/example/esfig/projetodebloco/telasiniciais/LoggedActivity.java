@@ -122,7 +122,9 @@ public class LoggedActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
-    public void goMenu(View view) {
-        Intent intent = new Intent();
+    public void goMenu(View view)
+    {
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
     }
 }
