@@ -37,22 +37,33 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleApiClient googleApiClient;
+    private FirebaseAuth mAuth;
 
     private SignInButton signInButton;
 
     public static final int SING_IN_CODE = 777;
 
     @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        goMainScreen(currentUser);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_login);
 
+        mAuth = FirebaseAuth.getInstance();
         //Fullscreen
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //end fullscreen
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.oAuth_clientID))
                 .requestEmail()
                 .build();
 
@@ -80,24 +91,37 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == SING_IN_CODE){
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleSigInResult(result);
+            //GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                handleSigInResult(account);
+            } catch (ApiException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    private void handleSigInResult(GoogleSignInResult result) {
+    private void handleSigInResult(GoogleSignInAccount result) {
 
-        if (result.isSuccess()){
-            goMainScreen();
-        } else {
-            Toast.makeText(this, R.string.not_log_in, Toast.LENGTH_SHORT).show();
-        }
-
+        AuthCredential credential = GoogleAuthProvider.getCredential(result.getIdToken(), null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            goMainScreen(user);
+                        } else{
+                            Toast.makeText(TelaLogin.this, R.string.not_log_in, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
     }
 
-    private void goMainScreen() {
-
+    private void goMainScreen(FirebaseUser user) {
         Intent intent = new Intent(this, LoggedActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
