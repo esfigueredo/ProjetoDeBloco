@@ -1,11 +1,10 @@
 package com.example.esfig.projetodebloco.telasiniciais;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,9 +35,6 @@ public class LoggedActivity extends AppCompatActivity implements GoogleApiClient
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logged);
 
-        getSupportActionBar().hide();
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         photoImageView = (ImageView) findViewById(R.id.photoImageView);
         nameTextView = (TextView) findViewById(R.id.nameTextView);
         emailTextView = (TextView) findViewById(R.id.emailTextView);
@@ -59,8 +55,8 @@ public class LoggedActivity extends AppCompatActivity implements GoogleApiClient
 
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
         if (opr.isDone()){
-            GoogleSignInResult result = opr.get();
-            handleSignResult(result);
+                GoogleSignInResult result = opr.get();
+                handleSignResult(result);
         }else {
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
@@ -86,7 +82,7 @@ public class LoggedActivity extends AppCompatActivity implements GoogleApiClient
     }
 
     private void goLogInScreen() {
-        Intent intent = new Intent(this, TelaLogin.class);
+        Intent intent = new Intent(this, LoggedActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
@@ -120,11 +116,5 @@ public class LoggedActivity extends AppCompatActivity implements GoogleApiClient
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
-    }
-
-    public void goMenu(View view)
-    {
-        Intent intent = new Intent(this, MenuActivity.class);
-        startActivity(intent);
     }
 }

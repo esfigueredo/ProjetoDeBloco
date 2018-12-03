@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.esfig.projetodebloco">
     \\ .activities.ActivityCad
     \\ .MainActivity
@@ -17,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".telasiniciais.SplashScreen">
+        <activity android:name=".telasiniciais.SplashScreen" />
+        <activity android:name=".telasiniciais.TelaLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,14 +32,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.esfig.projetodebloco.telasiniciais.TelaLogin" />
         </activity>
-        <activity android:name=".activities.ActivityCad" />
-        <activity android:name=".telasiniciais.TelaLogin" />
-        <activity android:name=".telasiniciais.FirebaseUIActivity" />
-        <activity android:name=".telasiniciais.LoggedActivity" />
-        <activity
-            android:name=".telasiniciais.MenuActivity"
-            android:label="@string/title_activity_menu"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".telasiniciais.MainActivity"
+            tools:ignore="DuplicateActivity" />
+        <activity android:name=".telasiniciais.LoggedActivity"></activity>
     </application>
 
 </manifest>

@@ -6,18 +6,18 @@ import com.google.firebase.database.IgnoreExtraProperties;
 public class Local {
 
     public String id;
-    public String endereco;
+    public String Endereco;
     public String nome;
 
     public Local() {
     }
 
     public String getEndereco() {
-        return endereco;
+        return Endereco;
     }
 
     public void setEndereco(String endereco) {
-        this.endereco = endereco;
+        Endereco = endereco;
     }
 
     public String getNome() {

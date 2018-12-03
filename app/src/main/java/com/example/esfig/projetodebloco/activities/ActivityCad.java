@@ -13,18 +13,13 @@ import com.example.esfig.projetodebloco.R;
 import com.example.esfig.projetodebloco.Util.FireBaseCalback;
 import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
-import com.example.esfig.projetodebloco.model.Promocao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityCad extends AppCompatActivity {
 
-    private AppCompatAutoCompleteTextView autoTextViewCustomprod;
-    private AppCompatAutoCompleteTextView autoTextViewCustommarca;
-
-    Promocao promo = new Promocao();
-
+    private AppCompatAutoCompleteTextView autoTextViewCustom;
 
 
     @Override
@@ -53,24 +48,21 @@ public class ActivityCad extends AppCompatActivity {
             cdao.setEventiListener(Produto.class, "felipe", "", new FireBaseCalback() {
                 @Override
                 public <T> void onCalback(List<T> list) {
+                    findViewById(R.id.LocalId);
 
                     List<Produto> lp = (ArrayList<Produto>) list;
 
-                    autoTextViewCustomprod = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
+                    autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.ProdutoId);
 
                     ProdutoAutocompleatAdapter produtoAdapter = new ProdutoAutocompleatAdapter(ActivityCad.this, R.layout.row_produto_autocompleate, lp);
-                    autoTextViewCustomprod.setThreshold(1);
-                    autoTextViewCustomprod.setAdapter(produtoAdapter);
+                    autoTextViewCustom.setThreshold(1);
+                    autoTextViewCustom.setAdapter(produtoAdapter);
                     // handle click event and set desc on textview
-                    autoTextViewCustomprod.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    autoTextViewCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Produto produto = (Produto) adapterView.getItemAtPosition(i);
-                            if(!promo.getProduto().getMarca().getMarca().isEmpty()){
-                                produto.setMarca(promo.getProduto().getMarca());
-                            }
-                            promo.setProduto(produto);
-                            autoTextViewCustomprod.setText(produto.getNome());
+                            autoTextViewCustom.setText(produto.getNome());
                         }
                     });
                 }
@@ -79,20 +71,20 @@ public class ActivityCad extends AppCompatActivity {
             cdao.setEventiListener(Marca.class, "felipe","", new FireBaseCalback() {
                 @Override
                 public <T> void onCalback(List<T> list) {
+                    findViewById(R.id.LocalId);
 
                     List<Marca> lm = (ArrayList<Marca>)list;
-                    autoTextViewCustommarca = (AppCompatAutoCompleteTextView) findViewById(R.id.marcadoprodutoId);
+                    autoTextViewCustom = (AppCompatAutoCompleteTextView) findViewById(R.id.marcadoprodutoId);
 
                     MarcaAutocompleteAdapter marcaAdapter = new MarcaAutocompleteAdapter(ActivityCad.this, R.layout.row_marca_autocomplete, lm);
-                    autoTextViewCustommarca.setThreshold(1);
-                    autoTextViewCustommarca.setAdapter(marcaAdapter);
+                    autoTextViewCustom.setThreshold(1);
+                    autoTextViewCustom.setAdapter(marcaAdapter);
                     // handle click event and set desc on textview
-                    autoTextViewCustommarca.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    autoTextViewCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Marca marca = (Marca) adapterView.getItemAtPosition(i);
-                            promo.getProduto().setMarca(marca);
-                            autoTextViewCustommarca.setText(marca.getMarca());
+                            autoTextViewCustom.setText(marca.getMarca());
                         }
                     });
                 }
