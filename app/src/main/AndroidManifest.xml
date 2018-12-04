@@ -32,8 +32,6 @@
         </activity>
         <activity android:name=".activities.ActivityCad" />
         <activity android:name=".telasiniciais.TelaLogin" />
-        <activity android:name=".telasiniciais.FirebaseUIActivity" />
-        <activity android:name=".telasiniciais.LoggedActivity" />
         <activity
             android:name=".telasiniciais.MenuActivity"
             android:label="@string/title_activity_menu"

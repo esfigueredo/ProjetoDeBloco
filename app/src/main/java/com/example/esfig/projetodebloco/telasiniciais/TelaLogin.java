@@ -3,25 +3,21 @@ package com.example.esfig.projetodebloco.telasiniciais;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.TextView;
-
+import com.example.esfig.projetodebloco.DAO.UsuarioDao;
 import com.example.esfig.projetodebloco.R;
+import com.example.esfig.projetodebloco.model.Usuario;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
-import android.app.ProgressDialog;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -66,6 +62,9 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
 
         signInButton = findViewById(R.id.signInButton);
 
+        signInButton.setSize(SignInButton.SIZE_WIDE);
+        signInButton.setColorScheme(SignInButton.COLOR_DARK);
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -98,6 +97,7 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 handleSigInResult(account);
             } catch (ApiException e) {
+                Toast.makeText(TelaLogin.this, R.string.not_log_in, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }
@@ -113,20 +113,25 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
                         if(task.isSuccessful())
                         {
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            Usuario u = new Usuario();
+                            u.setEmail(user.getEmail());
+                            u.setId(user.getUid());
+                            UsuarioDao udao =  new UsuarioDao();
+                            udao.add(u);
                             goMainScreen(user);
+
                         } else{
                             Toast.makeText(TelaLogin.this, R.string.not_log_in, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
     }
 
     private void goMainScreen(FirebaseUser user) {
         Intent intent = new Intent(this, MenuActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-
     }
 
     @Override
