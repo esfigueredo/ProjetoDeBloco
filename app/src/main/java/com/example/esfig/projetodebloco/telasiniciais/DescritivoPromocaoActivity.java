@@ -17,6 +17,7 @@ public class DescritivoPromocaoActivity extends AppCompatActivity {
         TextView recebeMarca = (TextView)findViewById(R.id.textView_04_recebe_marca);
         TextView recebeLocal = (TextView)findViewById(R.id.textView_06_recebe_local);
 
-
     }
+
+
 }

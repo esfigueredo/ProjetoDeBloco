@@ -3,9 +3,8 @@ package com.example.esfig.projetodebloco.telasiniciais;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,9 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.esfig.projetodebloco.R;
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -26,11 +26,18 @@ public class MenuActivity extends AppCompatActivity
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if(currentUser == null){
+        if (currentUser == null) {
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
         }
     }
+
+    private FirebaseAuth mAuth;
+    private GoogleSignInClient mGoogleSignInClient;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,11 +110,18 @@ public class MenuActivity extends AppCompatActivity
         } else if (id == R.id.nav_desconectar) {
             FirebaseAuth.getInstance().signOut();
 
+            Intent intent = new Intent(this, TelaLogin.class);
+            startActivity(intent);
+            finishAffinity();
+        } else if (id == R.id.nav_sair) {
 
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
             finishAffinity();
-        }
+
+
+
+    }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
