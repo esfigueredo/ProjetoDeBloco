@@ -15,10 +15,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.esfig.projetodebloco.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if(currentUser == null){
+            Intent intent = new Intent(this, TelaLogin.class);
+            startActivity(intent);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +102,11 @@ public class MenuActivity extends AppCompatActivity
           //  Intent Intent_promocao = new Intent(PromocaoActivity.this, PromocaoActivity.class);
         } else if (id == R.id.nav_desconectar) {
             FirebaseAuth.getInstance().signOut();
+
+
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
+            finishAffinity();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

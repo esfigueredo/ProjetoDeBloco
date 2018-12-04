@@ -21,5 +21,9 @@ public class PromocaoBO {
         LocalDAO localdao =  new LocalDAO();
         localdao.getObject(Promocao.class, FirebaseAuth.getInstance().getCurrentUser().getUid(), "",fireBaseCalback);
     }
-
+    
+    public void setEventiListenerPromo(FireBaseCalback fireBaseCalback) throws IllegalAccessException, InstantiationException{
+        promocadaodao.setEventiListener(Promocao.class, FirebaseAuth.getInstance().getCurrentUser().getUid(), "",fireBaseCalback);
+    }
+   
 }
