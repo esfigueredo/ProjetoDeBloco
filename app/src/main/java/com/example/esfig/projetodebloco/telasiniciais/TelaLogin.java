@@ -38,7 +38,7 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
 
     private GoogleApiClient googleApiClient;
     private FirebaseAuth mAuth;
-
+    private GoogleSignInClient mGoogleSignInClient;
     private SignInButton signInButton;
 
     public static final int SING_IN_CODE = 777;
@@ -48,7 +48,9 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        goMainScreen(currentUser);
+        if(currentUser != null){
+            goMainScreen(currentUser);
+        }
     }
 
     @Override
@@ -62,8 +64,10 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //end fullscreen
 
+        signInButton = findViewById(R.id.signInButton);
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.oAuth_clientID))
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -72,10 +76,7 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-        signInButton = (SignInButton) findViewById(R.id.signInButton);
-
-        signInButton.setSize(SignInButton.SIZE_WIDE);
-        signInButton.setColorScheme(SignInButton.COLOR_DARK);
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +123,7 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
     }
 
     private void goMainScreen(FirebaseUser user) {
-        Intent intent = new Intent(this, LoggedActivity.class);
+        Intent intent = new Intent(this, MenuActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 
