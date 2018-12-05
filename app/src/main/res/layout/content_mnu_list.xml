@@ -8,4 +8,6 @@
     tools:context=".telasiniciais.MnuListActivity"
     tools:showIn="@layout/app_bar_mnu_list">
 
+
+
 </android.support.constraint.ConstraintLayout>

@@ -46,7 +46,7 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             goMainScreen(currentUser);
-        }
+        }else{ }
     }
 
     @Override
@@ -74,6 +74,7 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
