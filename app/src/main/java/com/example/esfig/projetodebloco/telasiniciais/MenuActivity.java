@@ -163,8 +163,6 @@ public class MenuActivity extends AppCompatActivity
             startActivity(intent);
             finishAffinity();
 
-
-
     }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

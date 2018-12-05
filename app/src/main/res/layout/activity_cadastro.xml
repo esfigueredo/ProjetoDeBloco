@@ -14,7 +14,7 @@
     <android.support.v4.widget.Space
         android:layout_width="wrap_content"
         android:layout_height="10dp"
-        android:background="@color/white"
+        android:background="#FFFFFF"
         android:layout_margin="20dp"/>
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
@@ -38,7 +38,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
         android:ems="10"
-        android:background="@color/white"
+        android:background="#FFFFFF"
         android:inputType="textPersonName"
         android:completionHint="@android:string/selectAll"
         android:hint="@string/marca_do_produto"
@@ -48,14 +48,14 @@
     <android.support.v4.widget.Space
         android:layout_width="wrap_content"
         android:layout_height="10dp"
-        android:background="@color/white"/>
+        android:background="#FFFFFF"/>
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
 
         android:id="@+id/valordoprodutoId"
         android:layout_width="match_parent"
         android:ems="10"
-        android:background="@color/white"
+        android:background="#FFFFFF"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
         android:layout_height="wrap_content"
@@ -67,41 +67,41 @@
         <android.support.v4.widget.Space
             android:layout_width="wrap_content"
             android:layout_height="10dp"
-            android:background="@color/white"/>
+            android:background="#FFFFFF"/>
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
         android:id="@+id/estabelecimentoId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:background="@color/white"
+        android:background="#FFFFFF"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
         android:inputType="textPersonName"
-        android:hint="Nome do Estabelecimento"
+        android:hint="@string/nome_do_estabelecimento"
         android:imeOptions="actionNext"
         />
     <android.support.v4.widget.Space
         android:layout_width="wrap_content"
         android:layout_height="10dp"
-        android:background="@color/white"/>
+        android:background="#FFFFFF"/>
     <android.support.v7.widget.AppCompatAutoCompleteTextView
         android:id="@+id/LocalId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:background="@color/white"
+        android:background="#FFFFFF"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
         android:inputType="textPersonName"
-        android:hint="Endereço do Estabelecimento"
+        android:hint="@string/endereco_do_estabelecimento"
         android:imeOptions="actionDone"
         />
 
         <android.support.v4.widget.Space
             android:layout_width="wrap_content"
             android:layout_height="10dp"
-            android:background="@color/white"/>
+            android:background="#FFFFFF"/>
 
     <Button
         android:id="@+id/Savebtn"
@@ -111,7 +111,7 @@
         android:layout_marginVertical="10dp"
         style="@style/Widget.AppCompat.Button.Colored"
 
-        android:text="Salvar Produto" />
+        android:text="@string/salvar_produto" />
 
 
 </LinearLayout>
