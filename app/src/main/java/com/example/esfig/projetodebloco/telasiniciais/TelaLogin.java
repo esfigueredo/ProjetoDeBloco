@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+
+import com.example.esfig.projetodebloco.BO.UsuarioBo;
 import com.example.esfig.projetodebloco.DAO.UsuarioDao;
 import com.example.esfig.projetodebloco.R;
 import com.example.esfig.projetodebloco.model.Usuario;
@@ -118,8 +120,8 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
                             Usuario u = new Usuario();
                             u.setEmail(user.getEmail());
                             u.setId(user.getUid());
-                            UsuarioDao udao =  new UsuarioDao();
-                            udao.add(u);
+                            UsuarioBo ubo =  new UsuarioBo();
+                            ubo.add(u);
                             goMainScreen(user);
 
                         } else{

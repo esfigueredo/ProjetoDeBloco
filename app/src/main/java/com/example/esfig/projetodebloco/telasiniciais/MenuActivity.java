@@ -18,7 +18,9 @@ import android.view.View;
 
 import com.example.esfig.projetodebloco.BO.ListaBO;
 import com.example.esfig.projetodebloco.BO.PromocaoBO;
+import com.example.esfig.projetodebloco.BO.UsuarioBo;
 import com.example.esfig.projetodebloco.R;
+import com.example.esfig.projetodebloco.Util.Config;
 import com.example.esfig.projetodebloco.Util.FireBaseCalback;
 import com.example.esfig.projetodebloco.Util.MyclickListener;
 import com.example.esfig.projetodebloco.itemviewholder.PromocaoListItem;
@@ -36,6 +38,7 @@ public class MenuActivity extends AppCompatActivity
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
+
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser == null) {
             Intent intent = new Intent(this, TelaLogin.class);
@@ -95,6 +98,7 @@ public class MenuActivity extends AppCompatActivity
         @Override
         public void onClick(String position) {
             PromocaoBO pbo = new PromocaoBO();
+
             try {
                 pbo.getPromo(new FireBaseCalback() {
                     @Override
@@ -102,7 +106,9 @@ public class MenuActivity extends AppCompatActivity
                         Promocao p = (Promocao) list.get(0);
                         ListaBO lbo = new ListaBO();
 
-                        //lbo.addLista(p);
+
+
+                        lbo.addLista(p,Config.ContantList);
                     }
                 },position);
             } catch (IllegalAccessException e) {
