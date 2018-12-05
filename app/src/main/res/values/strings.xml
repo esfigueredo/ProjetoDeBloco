@@ -127,8 +127,10 @@
     <string name="marca_label">Marca:</string>
     <string name="local_label">Local:</string>
     <string name="sair">sair</string>
-
-
+    <string name="title_activity_menu_lista">MenuListaActivity</string>
+    <string name="salvar_produto">Salvar Produto</string>
+    <string name="nome_do_estabelecimento">Nome do Estabelecimento</string>
+    <string name="endereco_do_estabelecimento">Endereço do Estabelecimento</string>
 
 
 </resources>
