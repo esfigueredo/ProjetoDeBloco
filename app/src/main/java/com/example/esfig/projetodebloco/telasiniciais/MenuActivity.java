@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.esfig.projetodebloco.BO.ListaBO;
 import com.example.esfig.projetodebloco.BO.PromocaoBO;
 import com.example.esfig.projetodebloco.R;
 import com.example.esfig.projetodebloco.Util.FireBaseCalback;
@@ -93,7 +94,24 @@ public class MenuActivity extends AppCompatActivity
     public MyclickListener listener = new MyclickListener() {
         @Override
         public void onClick(String position) {
-            String oi;
+            PromocaoBO pbo = new PromocaoBO();
+            try {
+                pbo.getPromo(new FireBaseCalback() {
+                    @Override
+                    public <T> void onCalback(List<T> list) {
+                        Promocao p = (Promocao) list.get(0);
+                        ListaBO lbo = new ListaBO();
+
+                        //lbo.addLista(p);
+                    }
+                },position);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            }
+
+
         }
     };
 
