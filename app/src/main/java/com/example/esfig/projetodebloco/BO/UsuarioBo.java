@@ -30,8 +30,8 @@ public class UsuarioBo {
                         udao.add(use);
                     }else{
                        Usuario nuse =  ((List<Usuario>) list).get(0);
-                       Config.ContantList = use.getIdCorrentList();
-                        udao.add(nuse);
+                       Config.ContantList = nuse.getIdCorrentList();
+                       udao.add(nuse);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -40,4 +40,10 @@ public class UsuarioBo {
         }, use.getId());
 
     }
+
+    public void getUsuario(FireBaseCalback calback , String uid){
+        UsuarioDao udao =  new UsuarioDao();
+        udao.getUsuario(calback,uid);
+    }
+
 }

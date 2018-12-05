@@ -10,6 +10,8 @@ import android.view.WindowManager;
 import com.example.esfig.projetodebloco.BO.UsuarioBo;
 import com.example.esfig.projetodebloco.DAO.UsuarioDao;
 import com.example.esfig.projetodebloco.R;
+import com.example.esfig.projetodebloco.Util.Config;
+import com.example.esfig.projetodebloco.Util.FireBaseCalback;
 import com.example.esfig.projetodebloco.model.Usuario;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -30,6 +32,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import java.util.List;
 
 
 public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
@@ -132,6 +136,15 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
     }
 
     private void goMainScreen(FirebaseUser user) {
+        UsuarioBo ubo =  new UsuarioBo();
+        ubo.getUsuario(new FireBaseCalback() {
+            @Override
+            public <T> void onCalback(List<T> list) {
+                if(list.size() > 0) {
+                    Config.ContantList = ((Usuario) list.get(0)).getIdCorrentList();
+                }
+            }
+        }, user.getUid());
         Intent intent = new Intent(this, MenuActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

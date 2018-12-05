@@ -105,9 +105,6 @@ public class MenuActivity extends AppCompatActivity
                     public <T> void onCalback(List<T> list) {
                         Promocao p = (Promocao) list.get(0);
                         ListaBO lbo = new ListaBO();
-
-
-
                         lbo.addLista(p,Config.ContantList);
                     }
                 },position);

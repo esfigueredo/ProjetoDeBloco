@@ -14,8 +14,8 @@ public class ListaDAO extends ComunsDAO{
         Refdatabase.child(lista.getClass().getSimpleName().toLowerCase()+"/"+UserID+"/"+lista.getId()).setValue(lista);
     }
 
-    public void addPromocao(String UserID, Promocao promocao,String ListID){
-        Refdatabase.child(Lista.class.getSimpleName().toLowerCase()+"/"+UserID+"/"+ListID+"/"+promocao.getId()).setValue(promocao);
+    public void  addPromocao(String UserID, Promocao promocao,String ListID){
+        Refdatabase.child("ListaPromocoes"+"/"+UserID+"/"+ListID+"/"+promocao.getId()).setValue(promocao);
     }
 
 }
