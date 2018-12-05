@@ -10,6 +10,11 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Para monetização  -->
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,14 +22,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".telasiniciais.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-    //android:value="ca-app-pub-3940256099942544~3347511713"
-
-    <activity android:name=".activities.Activity_promocao">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".telasiniciais.MainActivity" />
+        <activity android:name=".activities.Activity_Produto">
+            <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="ca-app-pub-3940256099942544~3347511713"
+                />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.esfig.projetodebloco.telasiniciais.TelaLogin" />
+        </activity>
+        <activity android:name=".activities.ActivityCad" />
+        <activity android:name=".telasiniciais.TelaLogin" />
+        <activity
+            android:name=".telasiniciais.MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 </manifest>
