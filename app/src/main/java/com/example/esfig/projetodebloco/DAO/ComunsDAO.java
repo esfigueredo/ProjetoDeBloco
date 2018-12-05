@@ -19,6 +19,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ComunsDAO {
 
@@ -71,8 +72,13 @@ public class ComunsDAO {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
         });
 
+    }
+
+    public String createTransactionID() throws Exception{
+        return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
     }
 
     public <T> void setEventiListener(final Class<T> oclass, final String UsertID, final String key,final FireBaseCalback fireBaseCalback)

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     android:layout_gravity="center_vertical"
     tools:context=".telasiniciais.DescritivoPromocaoActivity">
 <LinearLayout
@@ -13,40 +14,56 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:paddingBottom="16dp"
+    android:background="@color/colorPrimary"
     android:paddingTop="16dp">
 
     <TextView
-        android:id="@+id/textView_02_recebe_nome"
+        android:id="@+id/textView_01_recebe_nomeProduto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        android:gravity="center"
         android:textSize="24sp"
-        tools:text="Nome" />
+        tools:text=" Nome Produto" />
 
     <TextView
-        android:id="@+id/textView_04_recebe_marca"
+        android:id="@+id/textView_02_recebe_marca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        android:gravity="center"
         android:textSize="24sp"
         tools:text="Marca" />
 
     <TextView
-        android:id="@+id/textView_06_recebe_local"
+        android:id="@+id/textView_03_recebe_valor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        android:gravity="center"
         android:textSize="24sp"
-        tools:text="Local" />
+        tools:text="Valor"/>
+
+    <TextView
+        android:id="@+id/textView_04_recebe_endereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:textSize="24sp"
+        tools:text="Endereço" />
 
 </LinearLayout>
 

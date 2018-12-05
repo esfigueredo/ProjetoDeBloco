@@ -1,5 +1,6 @@
 package com.example.esfig.projetodebloco.telasiniciais;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,14 +15,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.esfig.projetodebloco.R;
+import com.google.firebase.auth.FirebaseAuth;
 
-public class MnuListActivity extends AppCompatActivity
+public class MenuListaActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mnu_list);
+        setContentView(R.layout.activity_menu_lista);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -57,7 +59,7 @@ public class MnuListActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.mnu_list, menu);
+        getMenuInflater().inflate(R.menu.menu_lista, menu);
         return true;
     }
 
@@ -82,18 +84,14 @@ public class MnuListActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_minha_lista) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_promocao) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_desconectar) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(this, TelaLogin.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -9,15 +9,28 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.esfig.projetodebloco.BO.ListaBO;
+import com.example.esfig.projetodebloco.BO.PromocaoBO;
+import com.example.esfig.projetodebloco.BO.UsuarioBo;
 import com.example.esfig.projetodebloco.R;
+import com.example.esfig.projetodebloco.Util.Config;
+import com.example.esfig.projetodebloco.Util.FireBaseCalback;
+import com.example.esfig.projetodebloco.Util.MyclickListener;
+import com.example.esfig.projetodebloco.itemviewholder.PromocaoListItem;
+import com.example.esfig.projetodebloco.model.Promocao;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.xwray.groupie.GroupAdapter;
+
+import java.util.List;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -25,6 +38,7 @@ public class MenuActivity extends AppCompatActivity
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
+
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser == null) {
             Intent intent = new Intent(this, TelaLogin.class);
@@ -32,12 +46,9 @@ public class MenuActivity extends AppCompatActivity
         }
     }
 
+    public GroupAdapter adapter =  new GroupAdapter();
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +66,6 @@ public class MenuActivity extends AppCompatActivity
             }
         });
 
-
-
-
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -68,6 +74,54 @@ public class MenuActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        PromocaoBO pbo = new PromocaoBO();
+        try {
+            pbo.setEventiListenerPromo(new FireBaseCalback() {
+                @Override
+                public <T> void onCalback(List<T> list) {
+                    List<Promocao> lpromo = (List<Promocao>) list;
+                    RecyclerView PessoaView = findViewById(R.id.promoView);
+                    PessoaView.setLayoutManager(new GridLayoutManager(MenuActivity.this, 1));
+                    PessoaView.setAdapter(adapter);
+                    populateViewListPessoa(lpromo,adapter,listener);
+                }
+            });
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public MyclickListener listener = new MyclickListener() {
+        @Override
+        public void onClick(String position) {
+            PromocaoBO pbo = new PromocaoBO();
+
+            try {
+                pbo.getPromo(new FireBaseCalback() {
+                    @Override
+                    public <T> void onCalback(List<T> list) {
+                        Promocao p = (Promocao) list.get(0);
+                        ListaBO lbo = new ListaBO();
+                        lbo.addLista(p,Config.ContantList);
+                    }
+                },position);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    };
+
+    public void populateViewListPessoa(List<Promocao> lp, GroupAdapter ga, MyclickListener listener){
+        for (Promocao p: lp) {
+            ga.add(new PromocaoListItem(listener,p));
+        }
     }
 
     @Override
@@ -123,8 +177,6 @@ public class MenuActivity extends AppCompatActivity
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
             finishAffinity();
-
-
 
     }
 
