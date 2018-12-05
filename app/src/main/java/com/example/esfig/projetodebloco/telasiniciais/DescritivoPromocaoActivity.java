@@ -21,16 +21,18 @@ public class DescritivoPromocaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descritivo_promocao);
 
+
         promo = (Promocao) getIntent().getSerializableExtra("promo");
 
-        TextView recebeNome = (TextView)findViewById(R.id.textView_02_recebe_nome);
-        TextView recebeMarca = (TextView)findViewById(R.id.textView_04_recebe_marca);
-        TextView recebeLocal = (TextView)findViewById(R.id.textView_06_recebe_local);
-        TextView recebeLocalEndereco = (TextView)findViewById(R.id.textView_06_recebe_local);
+        TextView recebeNome = (TextView)findViewById(R.id.textView_01_recebe_nomeProduto);
+        TextView recebeMarca = (TextView)findViewById(R.id.textView_02_recebe_marca);
+        TextView recebeLocal = (TextView)findViewById(R.id.textView_05_recebe_cidade);
+        TextView valor = (TextView)findViewById(R.id.textView_03_recebe_valor);
+        TextView recebeLocalEndereco = (TextView)findViewById(R.id.textView_04_recebe_endereco);
 
         recebeNome.setText(promo.getProdutoNome());
         recebeMarca.setText(promo.getNomeMarca());
-
+        valor.setText(String.valueOf(promo.getPreco()));
         LocalBo lbo = new LocalBo();
 
         try {
