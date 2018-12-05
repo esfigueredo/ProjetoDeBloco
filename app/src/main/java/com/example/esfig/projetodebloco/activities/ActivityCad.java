@@ -5,12 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
 import android.view.View;
 import android.widget.AdapterView;
-
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import com.example.esfig.projetodebloco.Adapters.MarcaAutocompleteAdapter;
 import com.example.esfig.projetodebloco.Adapters.ProdutoAutocompleatAdapter;
 import com.example.esfig.projetodebloco.DAO.ComunsDAO;
+import com.example.esfig.projetodebloco.DAO.PromocaoDAO;
 import com.example.esfig.projetodebloco.R;
 import com.example.esfig.projetodebloco.Util.FireBaseCalback;
+import com.example.esfig.projetodebloco.model.Local;
 import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
 import com.example.esfig.projetodebloco.model.Promocao;
@@ -20,11 +23,11 @@ import java.util.List;
 
 public class ActivityCad extends AppCompatActivity {
 
+
     private AppCompatAutoCompleteTextView autoTextViewCustomprod;
     private AppCompatAutoCompleteTextView autoTextViewCustommarca;
 
     Promocao promo = new Promocao();
-
 
 
     @Override
@@ -66,7 +69,7 @@ public class ActivityCad extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Produto produto = (Produto) adapterView.getItemAtPosition(i);
-                            if(!promo.getProduto().getMarca().getMarca().isEmpty()){
+                            if (!promo.getProduto().getMarca().getMarca().isEmpty()) {
                                 produto.setMarca(promo.getProduto().getMarca());
                             }
                             promo.setProduto(produto);
@@ -76,11 +79,11 @@ public class ActivityCad extends AppCompatActivity {
                 }
             });
 
-            cdao.setEventiListener(Marca.class, "felipe","", new FireBaseCalback() {
+            cdao.setEventiListener(Marca.class, "felipe", "", new FireBaseCalback() {
                 @Override
                 public <T> void onCalback(List<T> list) {
 
-                    List<Marca> lm = (ArrayList<Marca>)list;
+                    List<Marca> lm = (ArrayList<Marca>) list;
                     autoTextViewCustommarca = (AppCompatAutoCompleteTextView) findViewById(R.id.marcadoprodutoId);
 
                     MarcaAutocompleteAdapter marcaAdapter = new MarcaAutocompleteAdapter(ActivityCad.this, R.layout.row_marca_autocomplete, lm);
@@ -91,10 +94,15 @@ public class ActivityCad extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Marca marca = (Marca) adapterView.getItemAtPosition(i);
+                            if(promo.getProduto() == null){
+                                promo.setProduto(new Produto());
+                            }
                             promo.getProduto().setMarca(marca);
                             autoTextViewCustommarca.setText(marca.getMarca());
                         }
                     });
+
+
                 }
             });
 
@@ -103,5 +111,34 @@ public class ActivityCad extends AppCompatActivity {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
+
+        // Get a reference to the AutoCompleteTextView in the layout
+        AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.LocalId);
+        // Get the string array
+        String[] locais1 = getResources().getStringArray(R.array.Locais_array);
+        // Create the adapter and set it to the AutoCompleteTextView
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, locais1);
+        textView.setAdapter(adapter);
+
+        findViewById(R.id.Savebtn).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                String id = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString() +((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
+                String nome = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString();
+                String end = ((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
+                Local l = new Local();
+                l.setId(id);
+                l.setNome(nome);
+                l.setEndereco(end);
+                promo.setLocalPromo(l);
+                PromocaoDAO p = new PromocaoDAO();
+                p.cadastro("felipe", promo);
+            }
+        });
     }
 }
+
+
+

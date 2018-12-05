@@ -25,5 +25,5 @@ public class PromocaoBO {
     public void setEventiListenerPromo(FireBaseCalback fireBaseCalback) throws IllegalAccessException, InstantiationException{
         promocadaodao.setEventiListener(Promocao.class, FirebaseAuth.getInstance().getCurrentUser().getUid(), "",fireBaseCalback);
     }
-   
+
 }

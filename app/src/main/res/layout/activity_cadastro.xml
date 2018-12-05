@@ -54,13 +54,25 @@
             android:layout_height="10dp" />
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/estabelecimentoId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Nome do Estabelecimento"
+        android:imeOptions="actionNext"
+        />
+    <android.support.v4.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
         android:id="@+id/LocalId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="@string/local"
-        android:imeOptions="actionNext"
+        android:hint="Endereço do Estabelecimento"
+        android:imeOptions="actionDone"
         />
 
         <android.support.v4.widget.Space
