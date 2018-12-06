@@ -131,6 +131,7 @@ public class ActivityCad extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                try {
 
                 String NomeLocal = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString() +" "+((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
                 String nome = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString();
@@ -168,11 +169,20 @@ public class ActivityCad extends AppCompatActivity {
 
                 PromocaoBO pbo =  new PromocaoBO();
 
-                try {
-                    pbo.Cadatrar(promo);
-                    Snackbar snackbar = Snackbar
-                            .make(findViewById(R.id.Telacadastro), "Promoção cadastrada com sucesso.", Snackbar.LENGTH_LONG);
-                    snackbar.show();
+                if(promo.getProdutoNome() == null || promo.getProdutoNome().isEmpty()){
+                    throw new Exception("Produto Não informado");
+                }
+                if(promo.getPreco() == 0 || String.valueOf(promo.getPreco()).isEmpty()){
+                    throw new Exception("Preço Não informado");
+                }
+                if(promo.getNomeLocal() == null || promo.getNomeLocal().isEmpty()){
+                    throw new Exception("Local Não informado");
+                }
+
+                pbo.Cadatrar(promo);
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.Telacadastro), "Promoção cadastrada com sucesso.", Snackbar.LENGTH_LONG);
+                snackbar.show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

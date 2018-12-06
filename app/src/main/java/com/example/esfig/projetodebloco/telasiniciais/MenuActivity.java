@@ -3,6 +3,7 @@ package com.example.esfig.projetodebloco.telasiniciais;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -133,6 +134,9 @@ public class MenuActivity extends AppCompatActivity
                         Promocao p = (Promocao) list.get(0);
                         ListaBO lbo = new ListaBO();
                         lbo.addLista(p,Config.ContantList);
+                        Snackbar snackbar = Snackbar
+                                .make(findViewById(R.id.content_menu_layoutdiv), "Promoção Associada a lista.", Snackbar.LENGTH_LONG);
+                        snackbar.show();
                     }
                 },position);
             } catch (IllegalAccessException e) {

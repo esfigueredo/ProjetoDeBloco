@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
-
     android:background="@color/colorPrimary"
     android:orientation="horizontal"
     >
@@ -25,20 +24,41 @@
             android:id="@+id/textRcprodut"
 
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="22dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="1dp"
-            android:layout_marginEnd="4dp"
             android:background="@drawable/edit_round"
             android:gravity="left|center"
-
             android:paddingLeft="8dp"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnExcluir"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnVincular"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/ic_action_anexar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnExcluir"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/ic_action_excluir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <GridLayout
             android:layout_width="match_parent"
@@ -95,22 +115,8 @@
                 android:background="@drawable/edit_round"
                 android:gravity="center|center"
                 android:textColor="@color/holo_red_light"
-                android:textSize="23sp"
+                android:textSize="20sp"
                 android:textStyle="bold|italic" />
-            <ImageButton
-                android:id="@+id/btnVincular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="0"
-                android:layout_column="2"
-                android:background="@drawable/ic_action_anexar"/>
-            <ImageButton
-                android:id="@+id/btnExcluir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_row="1"
-                android:layout_column="2"
-                android:background="@drawable/ic_action_excluir"/>
         </GridLayout>
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>
