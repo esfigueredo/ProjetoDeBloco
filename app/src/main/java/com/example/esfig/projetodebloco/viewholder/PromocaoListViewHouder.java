@@ -20,8 +20,8 @@ public class PromocaoListViewHouder extends ViewHolder {
     public PromocaoListViewHouder(@NonNull View rootView) {
         super(rootView);
 
-        produto = itemView.findViewById(R.id.textRcprodut);
-        marca = itemView.findViewById(R.id.textRcMarca);
+        produto= itemView.findViewById(R.id.textRcprodut);
+        marca  = itemView.findViewById(R.id.textRcmarcas);
         local = itemView.findViewById(R.id.textRcLocal);
         preco = itemView.findViewById(R.id.textRcPreco);
         lnt = itemView.findViewById(R.id.lnint);

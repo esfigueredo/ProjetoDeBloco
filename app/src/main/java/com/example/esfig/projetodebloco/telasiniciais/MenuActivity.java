@@ -71,7 +71,7 @@ public class MenuActivity extends AppCompatActivity
                     RecyclerView PessoaView = findViewById(R.id.promoView);
                     PessoaView.setLayoutManager(new GridLayoutManager(MenuActivity.this, 1));
                     PessoaView.setAdapter(adapter);
-                    populateViewListPessoa(lpromo,adapter,listener);
+                    populateViewListPessoa(lpromo,adapter,listener,presslistener);
                 }
             });
         } catch (IllegalAccessException e) {
@@ -81,6 +81,31 @@ public class MenuActivity extends AppCompatActivity
         }
 
     }
+
+    public MyclickListener presslistener = new MyclickListener() {
+        @Override
+        public void onClick(String position) {
+            PromocaoBO pbo = new PromocaoBO();
+
+            try {
+                pbo.getPromo(new FireBaseCalback() {
+                    @Override
+                    public <T> void onCalback(List<T> list) {
+                        Promocao p = (Promocao) list.get(0);
+                        Intent intent = new Intent(MenuActivity.this, DescritivoPromocaoActivity.class);
+                        intent.putExtra("promo", p);
+                        startActivity(intent);
+                    }
+                },position);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    };
 
     public MyclickListener listener = new MyclickListener() {
         @Override
@@ -106,9 +131,9 @@ public class MenuActivity extends AppCompatActivity
         }
     };
 
-    public void populateViewListPessoa(List<Promocao> lp, GroupAdapter ga, MyclickListener listener){
+    public void populateViewListPessoa(List<Promocao> lp, GroupAdapter ga, MyclickListener listener, MyclickListener presslistener){
         for (Promocao p: lp) {
-            ga.add(new PromocaoListItem(listener,p));
+            ga.add(new PromocaoListItem(listener,presslistener,p));
         }
     }
 
@@ -150,7 +175,7 @@ public class MenuActivity extends AppCompatActivity
         if (id == R.id.nav_minha_lista) {
 
         } else if (id == R.id.nav_promocao) {
-          //  Intent Intent_promocao = new Intent(PromocaoActivity.this, PromocaoActivity.class);
+          //  Intent Intent_promocao = new Intent(this, PromocaoActivity.class);
         } else if (id == R.id.nav_desconectar) {
             FirebaseAuth.getInstance().signOut();
 

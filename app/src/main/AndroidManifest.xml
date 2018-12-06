@@ -37,6 +37,11 @@
                 android:value="com.example.esfig.projetodebloco.telasiniciais.MenuActivity" />
         </activity>
         <activity android:name=".telasiniciais.TelaLogin" />
+        <activity android:name=".telasiniciais.DescritivoPromocaoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.esfig.projetodebloco.telasiniciais.MenuActivity" />
+        </activity>
         <activity
             android:name=".telasiniciais.MenuActivity"
             android:label="@string/title_activity_menu"
