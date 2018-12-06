@@ -147,7 +147,7 @@ public class MenuActivity extends AppCompatActivity
 
     public void populateViewListPessoa(List<Promocao> lp, GroupAdapter ga, MyclickListener listener, MyclickListener presslistener){
         for (Promocao p: lp) {
-            ga.add(new PromocaoListItem(listener,presslistener,p));
+            ga.add(new PromocaoListItem(listener,presslistener,p,true));
         }
     }
 

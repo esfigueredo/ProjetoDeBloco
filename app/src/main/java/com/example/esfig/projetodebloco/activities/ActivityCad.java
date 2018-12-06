@@ -5,11 +5,17 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
+import android.widget.TextView;
+
 import com.example.esfig.projetodebloco.Adapters.MarcaAutocompleteAdapter;
 import com.example.esfig.projetodebloco.Adapters.ProdutoAutocompleatAdapter;
 import com.example.esfig.projetodebloco.BO.PromocaoBO;
@@ -17,6 +23,7 @@ import com.example.esfig.projetodebloco.DAO.ComunsDAO;
 import com.example.esfig.projetodebloco.DAO.PromocaoDAO;
 import com.example.esfig.projetodebloco.R;
 import com.example.esfig.projetodebloco.Util.FireBaseCalback;
+import com.example.esfig.projetodebloco.Util.UtilMask;
 import com.example.esfig.projetodebloco.model.Local;
 import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
@@ -128,7 +135,17 @@ public class ActivityCad extends AppCompatActivity {
                 String NomeLocal = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString() +" "+((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
                 String nome = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString();
                 String end = ((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
-                String preco = ((AutoCompleteTextView) findViewById(R.id.valordoprodutoId)).getText().toString();
+                String preco = ((EditText) findViewById(R.id.valordoprodutoId)).getText().toString();
+
+
+                ((EditText) findViewById(R.id.valordoprodutoId)).addTextChangedListener(UtilMask.mask(((EditText) findViewById(R.id.valordoprodutoId)),UtilMask.FORMAT_PRECO));
+
+                ((EditText) findViewById(R.id.valordoprodutoId)).setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                    @Override
+                    public void onFocusChange(View v, boolean hasFocus) {
+                        ((AutoCompleteTextView)v).setText(((AutoCompleteTextView)v).getText().toString().contains(",0")?((AutoCompleteTextView)v).getText(): ((AutoCompleteTextView)v).getText().append(",00"));
+                    }
+                });
 
                 if(promo.getProdutoNome() == null){
                     Produto p =  new Produto();
@@ -146,7 +163,7 @@ public class ActivityCad extends AppCompatActivity {
                 l.setNome(nome);
                 l.setEndereco(end);
                 promo.setLocalPromo(l);
-                promo.setPreco(Double.valueOf(preco));
+                promo.setPreco(Double.valueOf(preco.replace(",",".")));
                 promo.setNomeLocal(NomeLocal);
 
                 PromocaoBO pbo =  new PromocaoBO();

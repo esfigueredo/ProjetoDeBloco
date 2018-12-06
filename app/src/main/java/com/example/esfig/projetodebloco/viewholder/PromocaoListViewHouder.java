@@ -3,6 +3,7 @@ package com.example.esfig.projetodebloco.viewholder;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.esfig.projetodebloco.R;
@@ -15,6 +16,8 @@ public class PromocaoListViewHouder extends ViewHolder {
     public TextView marca;
     public TextView local;
     public TextView preco;
+    public ImageButton vinc;
+    public ImageButton exclu;
     public ConstraintLayout lnt;
 
     public PromocaoListViewHouder(@NonNull View rootView) {
@@ -24,6 +27,8 @@ public class PromocaoListViewHouder extends ViewHolder {
         marca  = itemView.findViewById(R.id.textRcmarcas);
         local = itemView.findViewById(R.id.textRcLocal);
         preco = itemView.findViewById(R.id.textRcPreco);
+        vinc = itemView.findViewById(R.id.btnVincular);
+        exclu = itemView.findViewById(R.id.btnExcluir);
         lnt = itemView.findViewById(R.id.lnint);
 
     }

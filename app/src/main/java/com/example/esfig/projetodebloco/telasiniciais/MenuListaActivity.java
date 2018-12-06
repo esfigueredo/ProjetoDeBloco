@@ -88,18 +88,8 @@ public class MenuListaActivity extends AppCompatActivity
             }
         },Config.ContantList);
 
+        Load();
 
-        ListaPromocoesBO Lpbo = new ListaPromocoesBO();
-            Lpbo.setEventiListenerPromo(new FireBaseCalback() {
-                @Override
-                public <T> void onCalback(List<T> list) {
-                    List<Promocao> lpromo = (List<Promocao>) list;
-                    RecyclerView ListPromoView = findViewById(R.id.ListView);
-                    ListPromoView.setLayoutManager(new GridLayoutManager(MenuListaActivity.this, 1));
-                    ListPromoView.setAdapter(adapter);
-                    populateViewListPessoa(lpromo,adapter,listener,presslistener);
-                }
-            },Config.ContantList);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -137,15 +127,39 @@ public class MenuListaActivity extends AppCompatActivity
         public void onClick(String position) {
             ListaPromocoesBO lbo =  new ListaPromocoesBO();
             lbo.remove(Config.ContantList,position);
+
+            try {
+
+                Load();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
         }
 
 
     };
 
+    private void Load() throws InstantiationException, IllegalAccessException {
+        ListaPromocoesBO Lpbo = new ListaPromocoesBO();
+        Lpbo.setEventiListenerPromo(new FireBaseCalback() {
+            @Override
+            public <T> void onCalback(List<T> list) {
+                List<Promocao> lpromo = (List<Promocao>) list;
+                adapter.clear();
+                RecyclerView ListPromoView = findViewById(R.id.ListView);
+                ListPromoView.setLayoutManager(new GridLayoutManager(MenuListaActivity.this, 1));
+                ListPromoView.setAdapter(adapter);
+                populateViewListPessoa(lpromo,adapter,listener,presslistener);
+            }
+        },Config.ContantList);
+    }
 
     public void populateViewListPessoa(List<Promocao> lp, GroupAdapter ga, MyclickListener listener, MyclickListener presslistener){
         for (Promocao p: lp) {
-            ga.add(new PromocaoListItem(listener,presslistener,p));
+            ga.add(new PromocaoListItem(listener,presslistener,p,false));
         }
     }
 

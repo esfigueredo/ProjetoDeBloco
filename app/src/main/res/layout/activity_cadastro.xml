@@ -45,8 +45,7 @@
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName" />
 
-            <android.support.v7.widget.AppCompatAutoCompleteTextView
-
+            <EditText
                 android:id="@+id/valordoprodutoId"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
