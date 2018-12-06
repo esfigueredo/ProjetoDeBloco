@@ -1,6 +1,7 @@
 package com.example.esfig.projetodebloco.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
@@ -147,6 +148,9 @@ public class ActivityCad extends AppCompatActivity {
 
                 try {
                     pbo.Cadatrar(promo);
+                    Snackbar snackbar = Snackbar
+                            .make(findViewById(R.id.Telacadastro), "Promoção cadastrada com sucesso.", Snackbar.LENGTH_LONG);
+                    snackbar.show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

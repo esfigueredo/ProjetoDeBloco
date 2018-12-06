@@ -39,6 +39,10 @@ public class MenuActivity extends AppCompatActivity
         // Check if user is signed in (non-null) and update UI accordingly.
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
+
+        nomeMenuView.setText(currentUser.getDisplayName());
+        emailMenuView.setText(currentUser.getEmail());
+
         if (currentUser == null) {
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
@@ -47,6 +51,8 @@ public class MenuActivity extends AppCompatActivity
 
     private FirebaseUser currentUser;
     public GroupAdapter adapter =  new GroupAdapter();
+    private TextView emailMenuView;
+    private TextView nomeMenuView;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
 
@@ -65,6 +71,10 @@ public class MenuActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        nomeMenuView = navigationView.getHeaderView(0).findViewById(R.id.NameUser);
+        emailMenuView = navigationView.getHeaderView(0).findViewById(R.id.EmailUser);
+
         PromocaoBO pbo = new PromocaoBO();
         try {
             pbo.setEventiListenerPromo(new FireBaseCalback() {
@@ -96,6 +106,7 @@ public class MenuActivity extends AppCompatActivity
                     public <T> void onCalback(List<T> list) {
                         Promocao p = (Promocao) list.get(0);
                         Intent intent = new Intent(MenuActivity.this, DescritivoPromocaoActivity.class);
+                        intent.putExtra("myCallClass", MenuActivity.class);
                         intent.putExtra("promo", p);
                         startActivity(intent);
                     }

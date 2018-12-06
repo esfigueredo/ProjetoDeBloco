@@ -1,6 +1,7 @@
 package com.example.esfig.projetodebloco.DAO;
 
 import com.example.esfig.projetodebloco.model.Lista;
+import com.example.esfig.projetodebloco.model.ListaPromocoes;
 import com.example.esfig.projetodebloco.model.Local;
 import com.example.esfig.projetodebloco.model.Promocao;
 
@@ -15,7 +16,7 @@ public class ListaDAO extends ComunsDAO{
     }
 
     public void  addPromocao(String UserID, Promocao promocao,String ListID){
-        Refdatabase.child("ListaPromocoes"+"/"+UserID+"/"+ListID+"/"+promocao.getId()).setValue(promocao);
+        Refdatabase.child(ListaPromocoes.class.getSimpleName().toLowerCase() +"/"+UserID+"/"+ListID+"/"+promocao.getId()).setValue(promocao);
     }
 
 }

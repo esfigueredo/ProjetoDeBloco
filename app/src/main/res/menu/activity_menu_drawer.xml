@@ -18,10 +18,10 @@
 
     <item android:title="@string/comunicacao">
         <menu>
-            <item
+            <!--item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="@string/compartilhe" />
+                android:title="@string/compartilhe" /-->
             <item
                 android:id="@+id/nav_desconectar"
                 android:icon="@drawable/ic_exit_app_black_24dp"
