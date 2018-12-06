@@ -2,8 +2,10 @@ package com.example.esfig.projetodebloco.model;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.io.Serializable;
+
 @IgnoreExtraProperties
-public class Local {
+public class Local implements Serializable {
 
     public String id;
     public String endereco;

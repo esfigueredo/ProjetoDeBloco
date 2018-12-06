@@ -31,13 +31,20 @@ public class PromocaoBO {
     }
 
     public void Cadatrar(Promocao promocao) throws Exception {
+        String id ;
         if(promocao.getProduto().getId() == null){
-            promocao.getProduto().setId(promocadaodao.createTransactionID());
+            id = promocadaodao.createTransactionID();
+            promocao.setProdutoID(id);
+            promocao.getProduto().setId(id);
         }
         if(promocao.getLocalPromo().getId() == null){
-            promocao.getLocalPromo().setId(promocadaodao.createTransactionID());
+            id = promocadaodao.createTransactionID();
+            promocao.setIdLocal(id);
+            promocao.getLocalPromo().setId(id);
         }
         if(promocao.getProduto().getMarca().getId() == null){
+            id = promocadaodao.createTransactionID();
+            promocao.getProduto().setIdMarca(id);
             promocao.getProduto().getMarca().setId(promocadaodao.createTransactionID());
         }
         if(promocao.getId() == null){

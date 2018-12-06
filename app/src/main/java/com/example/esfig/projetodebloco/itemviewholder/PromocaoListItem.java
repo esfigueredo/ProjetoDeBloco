@@ -33,7 +33,7 @@ public class PromocaoListItem extends Item<PromocaoListViewHouder> {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-                if( (event.getEventTime() - event.getDownTime()) > 3000){
+                if( (event.getEventTime() - event.getDownTime()) > 1500){
                     presslistener.onClick(promocao.getId());
                 }else if (event.getAction() == MotionEvent.ACTION_UP ){
                     listener.onClick(promocao.getId());
