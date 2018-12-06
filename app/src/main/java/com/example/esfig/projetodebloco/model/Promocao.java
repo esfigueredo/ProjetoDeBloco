@@ -22,6 +22,8 @@ public class Promocao implements Serializable {
     public Local localPromo;
 
     public Promocao() {
+        produto = new Produto();
+        localPromo = new Local();
     }
 
     public String getProdutoID() {

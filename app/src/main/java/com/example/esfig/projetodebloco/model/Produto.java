@@ -17,6 +17,7 @@ public class Produto implements Serializable {
     public Marca marca;
 
     public Produto() {
+        marca = new Marca();
     }
 
     public String getIdMarca() {

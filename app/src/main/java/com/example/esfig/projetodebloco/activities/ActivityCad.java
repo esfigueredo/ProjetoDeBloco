@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import com.example.esfig.projetodebloco.Adapters.MarcaAutocompleteAdapter;
 import com.example.esfig.projetodebloco.Adapters.ProdutoAutocompleatAdapter;
+import com.example.esfig.projetodebloco.BO.PromocaoBO;
 import com.example.esfig.projetodebloco.DAO.ComunsDAO;
 import com.example.esfig.projetodebloco.DAO.PromocaoDAO;
 import com.example.esfig.projetodebloco.R;
@@ -67,9 +68,7 @@ public class ActivityCad extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Produto produto = (Produto) adapterView.getItemAtPosition(i);
-                            if (!promo.getProduto().getMarca().getMarca().isEmpty()) {
-                                produto.setMarca(promo.getProduto().getMarca());
-                            }
+                            produto.setMarca(promo.getProduto().getMarca());
                             promo.setProduto(produto);
                             autoTextViewCustomprod.setText(produto.getNome());
                         }
@@ -92,9 +91,6 @@ public class ActivityCad extends AppCompatActivity {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Marca marca = (Marca) adapterView.getItemAtPosition(i);
-                            if(promo.getProduto() == null){
-                                promo.setProduto(new Produto());
-                            }
                             promo.getProduto().setMarca(marca);
                             autoTextViewCustommarca.setText(marca.getMarca());
                         }
@@ -123,16 +119,36 @@ public class ActivityCad extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String id = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString() +((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
+                String NomeLocal = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString() +((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
                 String nome = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString();
                 String end = ((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
+                String preco = ((AutoCompleteTextView) findViewById(R.id.valordoprodutoId)).getText().toString();
+
+                if(promo.getProdutoNome() == null){
+                    Produto p =  new Produto();
+                    p.setNome(((AutoCompleteTextView) findViewById(R.id.marcadoprodutoId)).getText().toString());
+                    promo.setProduto(p);
+                }
+                if(promo.getNomeMarca() == null){
+                    Marca m = new Marca();
+                    m.setMarca(((AutoCompleteTextView) findViewById(R.id.ProdutoId)).getText().toString());
+                    promo.getProduto().setMarca(m);
+                }
+
                 Local l = new Local();
-                l.setId(id);
                 l.setNome(nome);
                 l.setEndereco(end);
                 promo.setLocalPromo(l);
-                PromocaoDAO p = new PromocaoDAO();
-                p.cadastro("felipe", promo);
+                promo.setPreco(Double.valueOf(preco));
+                promo.setNomeLocal(NomeLocal);
+
+                PromocaoBO pbo =  new PromocaoBO();
+
+                try {
+                    pbo.Cadatrar(promo);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
