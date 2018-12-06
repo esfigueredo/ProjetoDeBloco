@@ -1,8 +1,10 @@
 package com.example.esfig.projetodebloco.activities;
 
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,25 +31,21 @@ public class ActivityCad extends AppCompatActivity {
 
     Promocao promo = new Promocao();
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-
-        /*List<Produto> lp = new ArrayList<>();
-        Produto p = new Produto();
-        p.setId("325");
-        p.setIdMarca("555");
-        p.setNome("banana");
-        p.setNomeMarca("loreal");
-        lp.add(p);
-        Produto p1 = new Produto();
-        p1.setId("325");
-        p1.setIdMarca("555");
-        p1.setNome("cenora");
-        p1.setNomeMarca("loreal");
-        lp.add(p1);*/
 
 
         ComunsDAO cdao = new ComunsDAO();
