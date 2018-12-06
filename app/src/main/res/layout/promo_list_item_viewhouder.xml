@@ -45,7 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="5dp"
-            android:columnCount="2"
+            android:columnCount="3"
+            android:rowCount="3"
             app:layout_constraintTop_toBottomOf="@+id/textRcprodut">
 
             <TextView
@@ -96,7 +97,20 @@
                 android:textColor="@color/holo_red_light"
                 android:textSize="23sp"
                 android:textStyle="bold|italic" />
-
+            <ImageButton
+                android:id="@+id/btnVincular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:background="@drawable/ic_action_incluir"/>
+            <ImageButton
+                android:id="@+id/btnExcluir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:background="@drawable/ic_action_excluir"/>
         </GridLayout>
     </android.support.constraint.ConstraintLayout>
 </LinearLayout>
