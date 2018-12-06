@@ -120,7 +120,7 @@ public class ActivityCad extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String NomeLocal = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString() +((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
+                String NomeLocal = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString() +" "+((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
                 String nome = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString();
                 String end = ((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
                 String preco = ((AutoCompleteTextView) findViewById(R.id.valordoprodutoId)).getText().toString();

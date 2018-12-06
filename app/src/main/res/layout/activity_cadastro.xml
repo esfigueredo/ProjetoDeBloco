@@ -7,9 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:windowSoftInputMode="adjustResize"
-
-
-
     tools:context=".activities.ActivityCad">
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
