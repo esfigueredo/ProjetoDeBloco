@@ -129,15 +129,17 @@ public class MenuListaActivity extends AppCompatActivity
             } catch (InstantiationException e) {
                 e.printStackTrace();
             }
-
-
         }
     };
 
     public MyclickListener listener = new MyclickListener() {
         @Override
         public void onClick(String position) {
+            ListaPromocoesBO lbo =  new ListaPromocoesBO();
+            lbo.remove(Config.ContantList,position);
         }
+
+
     };
 
 

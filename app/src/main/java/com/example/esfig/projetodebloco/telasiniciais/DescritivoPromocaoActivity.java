@@ -25,7 +25,7 @@ public class DescritivoPromocaoActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
-                Intent intent = new Intent(this, call.getClass());
+                Intent intent = new Intent(this, call);
                 startActivity(intent);
                 return true;
         }

@@ -18,6 +18,10 @@ public class PromocaoDAO extends ComunsDAO{
         Refdatabase.child("promocao/"+Userid+"/"+promocao.getId()).setValue(promocao);
     }
 
+    public void remove(@NonNull final String Userid, @NonNull final String promocaoID){
+        Refdatabase.child("promocao/"+Userid+"/"+promocaoID).removeValue();
+    }
+
     public void cadastro(@NonNull final String Userid, @NonNull final Promocao promocao){
 
         produtodao.saveProduto(Userid,promocao.getProduto());

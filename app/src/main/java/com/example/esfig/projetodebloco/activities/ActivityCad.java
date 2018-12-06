@@ -21,6 +21,8 @@ import com.example.esfig.projetodebloco.model.Local;
 import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
 import com.example.esfig.projetodebloco.model.Promocao;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +34,9 @@ public class ActivityCad extends AppCompatActivity {
     private AppCompatAutoCompleteTextView autoTextViewCustommarca;
 
     Promocao promo = new Promocao();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser firebaseUser;
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -48,12 +53,12 @@ public class ActivityCad extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-
+        firebaseUser = firebaseAuth.getCurrentUser();
 
         ComunsDAO cdao = new ComunsDAO();
         //Context c = this;
         try {
-            cdao.setEventiListener(Produto.class, "felipe", "", new FireBaseCalback() {
+            cdao.setEventiListener(Produto.class, firebaseUser.getUid(), "", new FireBaseCalback() {
                 @Override
                 public <T> void onCalback(List<T> list) {
 
@@ -77,7 +82,7 @@ public class ActivityCad extends AppCompatActivity {
                 }
             });
 
-            cdao.setEventiListener(Marca.class, "felipe", "", new FireBaseCalback() {
+            cdao.setEventiListener(Marca.class, firebaseUser.getUid(), "", new FireBaseCalback() {
                 @Override
                 public <T> void onCalback(List<T> list) {
 

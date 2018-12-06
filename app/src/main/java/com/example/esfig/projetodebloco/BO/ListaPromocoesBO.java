@@ -9,10 +9,14 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ListaPromocoesBO {
 
-    ListaPromocoesDAO ListaPromo =  new ListaPromocoesDAO();
+    ListaPromocoesDAO listaPromo =  new ListaPromocoesDAO();
 
 
     public void setEventiListenerPromo(FireBaseCalback fireBaseCalback,String ListID) throws IllegalAccessException, InstantiationException{
-        ListaPromo.getObject(ListaPromocoes.class, FirebaseAuth.getInstance().getCurrentUser().getUid()+"/"+ListID, "",fireBaseCalback);
+        listaPromo.getObject(ListaPromocoes.class, FirebaseAuth.getInstance().getCurrentUser().getUid()+"/"+ListID, "",fireBaseCalback);
+    }
+
+    public void remove(String listID,String promoID){
+        listaPromo.remove(FirebaseAuth.getInstance().getCurrentUser().getUid(),listID,promoID);
     }
 }
