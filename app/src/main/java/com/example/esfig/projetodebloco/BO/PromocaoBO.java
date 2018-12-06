@@ -12,7 +12,7 @@ public class PromocaoBO {
 
     PromocaoDAO promocadaodao =  new PromocaoDAO();
 
-    public void Cadatrar(Promocao promocao){
+    public void add(Promocao promocao){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         promocadaodao.cadastro(user.getUid(),promocao);
     }
@@ -28,5 +28,21 @@ public class PromocaoBO {
 
     public void getPromo(FireBaseCalback fireBaseCalback, String id) throws IllegalAccessException, InstantiationException{
         promocadaodao.getObject(Promocao.class, FirebaseAuth.getInstance().getCurrentUser().getUid(), id,fireBaseCalback);
+    }
+
+    public void Cadatrar(Promocao promocao) throws Exception {
+        if(promocao.getProduto().getId() == null){
+            promocao.getProduto().setId(promocadaodao.createTransactionID());
+        }
+        if(promocao.getLocalPromo().getId() == null){
+            promocao.getLocalPromo().setId(promocadaodao.createTransactionID());
+        }
+        if(promocao.getProduto().getMarca().getId() == null){
+            promocao.getProduto().getMarca().setId(promocadaodao.createTransactionID());
+        }
+        if(promocao.getId() == null){
+            promocao.setId(promocadaodao.createTransactionID());
+        }
+        promocadaodao.cadastro(FirebaseAuth.getInstance().getCurrentUser().getUid(),promocao);
     }
 }

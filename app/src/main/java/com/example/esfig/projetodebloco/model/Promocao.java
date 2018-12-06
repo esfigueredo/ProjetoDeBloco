@@ -22,6 +22,8 @@ public class Promocao implements Serializable {
     public Local localPromo;
 
     public Promocao() {
+        produto = new Produto();
+        localPromo = new Local();
     }
 
     public String getProdutoID() {
@@ -64,6 +66,10 @@ public class Promocao implements Serializable {
     public void setProduto(Produto produto) {
         this.produtoID = produto.getId();
         this.produtoNome= produto.getNome();
+        if(nomeMarca == null) {
+            this.nomeMarca = produto.getMarca().getMarca() != null ? produto.getMarca().getMarca() :
+                    getProduto().getNomeMarca() != null ? getProduto().getNomeMarca() : "Marca não informada.";
+        }
         this.produto = produto;
     }
 

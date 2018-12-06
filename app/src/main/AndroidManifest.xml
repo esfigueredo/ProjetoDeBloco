@@ -34,19 +34,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".telasiniciais.MainActivity" />
+
         <activity android:name=".activities.Activity_Produto">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.esfig.projetodebloco.telasiniciais.TelaLogin"
                 />
         </activity>
+
         <activity android:name=".activities.ActivityCad" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.esfig.projetodebloco.telasiniciais.MenuActivity" />
         </activity>
+
         <activity android:name=".telasiniciais.TelaLogin" />
+
         <activity android:name=".telasiniciais.DescritivoPromocaoActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -54,8 +57,20 @@
         </activity>
         <activity
             android:name=".telasiniciais.MenuActivity"
-            android:label="@string/title_activity_menu"
+            android:label="@string/title_activity_menu_01"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".telasiniciais.MainActivity"
+            android:label="@string/title_activity_menu_02"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".telasiniciais.MenuListaActivity"
+            android:label="@string/title_activity_menu_03"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
     </application>
 
 </manifest>

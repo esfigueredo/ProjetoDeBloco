@@ -110,7 +110,9 @@
     <string name="revoke">revoke</string>
     <string name="log_out">log_out1</string>
     <string name="not_log_in">not log in</string>
-    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_menu_01">Mercado Fácil</string>
+    <string name="title_activity_menu_02">Mercado Fácil - Promoção</string>
+    <string name="title_activity_menu_03">Mercado Fácil - Lista</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
