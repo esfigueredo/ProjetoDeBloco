@@ -90,8 +90,14 @@ public class MenuActivity extends AppCompatActivity
             });
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+            Snackbar snackbar = Snackbar
+                    .make(findViewById(R.id.content_menu_layoutdiv), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+            snackbar.show();
         } catch (InstantiationException e) {
             e.printStackTrace();
+            Snackbar snackbar = Snackbar
+                    .make(findViewById(R.id.content_menu_layoutdiv), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+            snackbar.show();
         }
 
     }
@@ -114,8 +120,14 @@ public class MenuActivity extends AppCompatActivity
                 },position);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.content_menu_layoutdiv), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+                snackbar.show();
             } catch (InstantiationException e) {
                 e.printStackTrace();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.content_menu_layoutdiv), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+                snackbar.show();
             }
 
 
@@ -141,8 +153,14 @@ public class MenuActivity extends AppCompatActivity
                 },position);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.content_menu_layoutdiv), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+                snackbar.show();
             } catch (InstantiationException e) {
                 e.printStackTrace();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.content_menu_layoutdiv), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+                snackbar.show();
             }
 
 

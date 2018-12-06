@@ -184,7 +184,9 @@ public class ActivityCad extends AppCompatActivity {
                         .make(findViewById(R.id.Telacadastro), "Promoção cadastrada com sucesso.", Snackbar.LENGTH_LONG);
                 snackbar.show();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Snackbar snackbar = Snackbar
+                            .make(findViewById(R.id.Telacadastro), e.getMessage(), Snackbar.LENGTH_LONG);
+                    snackbar.show();
                 }
             }
         });

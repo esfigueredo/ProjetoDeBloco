@@ -10,10 +10,9 @@
     android:windowSoftInputMode="adjustResize"
     tools:context=".activities.ActivityCad">
 
-    <android.support.v4.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,7 +101,6 @@
                 android:text="@string/salvar_produto" />
 
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
-
+    </ScrollView>
 
 </LinearLayout>

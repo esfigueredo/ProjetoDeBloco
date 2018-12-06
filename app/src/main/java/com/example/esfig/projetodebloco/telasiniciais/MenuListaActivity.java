@@ -92,8 +92,14 @@ public class MenuListaActivity extends AppCompatActivity
 
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+            Snackbar snackbar = Snackbar
+                    .make(findViewById(R.id.ContentViewListMenu), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+            snackbar.show();
         } catch (InstantiationException e) {
             e.printStackTrace();
+            Snackbar snackbar = Snackbar
+                    .make(findViewById(R.id.ContentViewListMenu), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+            snackbar.show();
         }
 
     }
@@ -116,8 +122,14 @@ public class MenuListaActivity extends AppCompatActivity
                 },position);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.ContentViewListMenu), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+                snackbar.show();
             } catch (InstantiationException e) {
                 e.printStackTrace();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.ContentViewListMenu), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+                snackbar.show();
             }
         }
     };
@@ -133,8 +145,14 @@ public class MenuListaActivity extends AppCompatActivity
                 Load();
             } catch (InstantiationException e) {
                 e.printStackTrace();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.ContentViewListMenu), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+                snackbar.show();
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.ContentViewListMenu), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
+                snackbar.show();
             }
 
         }
@@ -170,6 +188,7 @@ public class MenuListaActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+
         }
     }
 
