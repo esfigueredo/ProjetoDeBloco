@@ -126,12 +126,13 @@ public class ActivityCad extends AppCompatActivity {
 
                 if(promo.getProdutoNome() == null){
                     Produto p =  new Produto();
-                    p.setNome(((AutoCompleteTextView) findViewById(R.id.marcadoprodutoId)).getText().toString());
+                    p.setNome(((AutoCompleteTextView) findViewById(R.id.ProdutoId)).getText().toString());
                     promo.setProduto(p);
                 }
-                if(promo.getNomeMarca() == null){
+                if(promo.getProduto().getMarca().getMarca() == null){
                     Marca m = new Marca();
-                    m.setMarca(((AutoCompleteTextView) findViewById(R.id.ProdutoId)).getText().toString());
+                    m.setMarca(((AutoCompleteTextView) findViewById(R.id.marcadoprodutoId)).getText().toString());
+                    promo.setNomeMarca(m.getMarca());
                     promo.getProduto().setMarca(m);
                 }
 
