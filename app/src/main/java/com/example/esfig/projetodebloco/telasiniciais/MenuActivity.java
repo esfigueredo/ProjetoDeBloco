@@ -193,16 +193,16 @@ public class MenuActivity extends AppCompatActivity
         if (id == R.id.nav_minha_lista) {
             Intent intent = new Intent(MenuActivity.this, MenuListaActivity.class);
             startActivity(intent);
-            Toast.makeText(this, "Tela Lista", Toast.LENGTH_LONG).show();
+
 
         } else if (id == R.id.nav_promocao) {
             Intent intent = new Intent(MenuActivity.this, MenuActivity.class);
             startActivity(intent);
-            Toast.makeText(this, "Tela promoção", Toast.LENGTH_LONG).show();
+
 
         } else if (id == R.id.nav_desconectar) {
             FirebaseAuth.getInstance().signOut();
-            Toast.makeText(this, "Você se desconectou.", Toast.LENGTH_LONG).show();
+
 
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
@@ -213,7 +213,7 @@ public class MenuActivity extends AppCompatActivity
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
             finishAffinity();
-            Toast.makeText(this, "Você saiu do App.", Toast.LENGTH_LONG).show();
+
 
     }
 
