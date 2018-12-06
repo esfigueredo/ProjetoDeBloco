@@ -9,80 +9,91 @@
     android:windowSoftInputMode="adjustResize"
     tools:context=".activities.ActivityCad">
 
-    <android.support.v7.widget.AppCompatAutoCompleteTextView
-        android:id="@+id/ProdutoId"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:background="@color/Branco"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        android:inputType="textPersonName"
-        android:completionHint="@android:string/selectAll"
-        android:hint="@string/nome_do_produto"
-        android:imeOptions="actionNext"
-        />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <android.support.v7.widget.AppCompatAutoCompleteTextView
-        android:id="@+id/marcadoprodutoId"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        android:ems="10"
-        android:background="#FFFFFF"
-        android:inputType="textPersonName"
-        android:completionHint="@android:string/selectAll"
-        android:hint="@string/marca_do_produto"
-        android:imeOptions="actionNext"
-         />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <android.support.v7.widget.AppCompatAutoCompleteTextView
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/ProdutoId"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:background="@color/Branco"
+                android:completionHint="@android:string/selectAll"
+                android:ems="10"
+                android:hint="@string/nome_do_produto"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName" />
 
-        android:id="@+id/valordoprodutoId"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:hint="@string/valor_do_produto"
-        android:imeOptions="actionNext"
-        android:inputType="numberDecimal" />
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/marcadoprodutoId"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:background="#FFFFFF"
+                android:completionHint="@android:string/selectAll"
+                android:ems="10"
+                android:hint="@string/marca_do_produto"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName" />
 
-    <android.support.v7.widget.AppCompatAutoCompleteTextView
-        android:id="@+id/estabelecimentoId"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:hint="@string/nome_do_estabelecimento"
-        android:imeOptions="actionNext"
-        android:inputType="textPersonName" />
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
 
-    <android.support.v7.widget.AppCompatAutoCompleteTextView
-        android:id="@+id/LocalId"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:hint="@string/endereco_do_estabelecimento"
-        android:imeOptions="actionDone"
-        android:inputType="textPersonName" />
+                android:id="@+id/valordoprodutoId"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="@string/valor_do_produto"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal" />
 
-    <Button
-        android:id="@+id/Savebtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        style="@style/Widget.AppCompat.Button.Colored"
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/estabelecimentoId"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="@string/nome_do_estabelecimento"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName" />
 
-        android:text="@string/salvar_produto" />
+            <android.support.v7.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/LocalId"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="@string/endereco_do_estabelecimento"
+                android:imeOptions="actionDone"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/Savebtn"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+
+                android:text="@string/salvar_produto" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
 
 </LinearLayout>
