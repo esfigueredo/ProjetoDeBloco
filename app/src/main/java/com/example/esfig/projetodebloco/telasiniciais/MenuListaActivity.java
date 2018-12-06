@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.esfig.projetodebloco.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -85,13 +86,31 @@ public class MenuListaActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_minha_lista) {
+            Intent intent = new Intent(MenuListaActivity.this, MenuListaActivity.class);
+            startActivity(intent);
+            Toast.makeText(this, "Tela Lista", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_promocao) {
+            Intent intent = new Intent(MenuListaActivity.this, MenuActivity.class);
+            startActivity(intent);
+            Toast.makeText(this, "Tela promoção", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_desconectar) {
             FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, "Você se desconectou.", Toast.LENGTH_LONG).show();
+
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
+            finishAffinity();
+
+
+        } else if (id == R.id.nav_sair) {
+
+            Intent intent = new Intent(this, TelaLogin.class);
+            startActivity(intent);
+            finishAffinity();
+            Toast.makeText(this, "Você saiu do App.", Toast.LENGTH_LONG).show();
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

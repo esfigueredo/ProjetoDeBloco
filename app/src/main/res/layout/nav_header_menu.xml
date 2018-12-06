@@ -10,17 +10,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:backgroundTint="#020305"
+    android:backgroundTint="#263238"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
-
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Lista de Compra"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:text="@string/nav_header_title"
         android:textColor="#FFFFFF"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
@@ -28,8 +25,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="14sp"
-        android:text="Projeto de Bloco" />
+        android:textColor="#FFFF8D"
+        android:text="@string/nav_header_subtitle" />
 
 </LinearLayout>

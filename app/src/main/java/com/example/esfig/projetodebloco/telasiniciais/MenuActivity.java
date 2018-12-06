@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.esfig.projetodebloco.BO.ListaBO;
 import com.example.esfig.projetodebloco.BO.PromocaoBO;
@@ -71,7 +72,7 @@ public class MenuActivity extends AppCompatActivity
                     RecyclerView PessoaView = findViewById(R.id.promoView);
                     PessoaView.setLayoutManager(new GridLayoutManager(MenuActivity.this, 1));
                     PessoaView.setAdapter(adapter);
-                    populateViewListPessoa(lpromo,adapter,listener,presslistener);
+                    populateViewListPessoa(lpromo,adapter,listener);
                 }
             });
         } catch (IllegalAccessException e) {
@@ -81,31 +82,6 @@ public class MenuActivity extends AppCompatActivity
         }
 
     }
-
-    public MyclickListener presslistener = new MyclickListener() {
-        @Override
-        public void onClick(String position) {
-            PromocaoBO pbo = new PromocaoBO();
-
-            try {
-                pbo.getPromo(new FireBaseCalback() {
-                    @Override
-                    public <T> void onCalback(List<T> list) {
-                        Promocao p = (Promocao) list.get(0);
-                        Intent intent = new Intent(MenuActivity.this, DescritivoPromocaoActivity.class);
-                        intent.putExtra("promo", p);
-                        startActivity(intent);
-                    }
-                },position);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            }
-
-
-        }
-    };
 
     public MyclickListener listener = new MyclickListener() {
         @Override
@@ -131,9 +107,9 @@ public class MenuActivity extends AppCompatActivity
         }
     };
 
-    public void populateViewListPessoa(List<Promocao> lp, GroupAdapter ga, MyclickListener listener, MyclickListener presslistener){
+    public void populateViewListPessoa(List<Promocao> lp, GroupAdapter ga, MyclickListener listener){
         for (Promocao p: lp) {
-            ga.add(new PromocaoListItem(listener,presslistener,p));
+            ga.add(new PromocaoListItem(listener,p));
         }
     }
 
@@ -173,20 +149,29 @@ public class MenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_minha_lista) {
+            Intent intent = new Intent(MenuActivity.this, MenuListaActivity.class);
+            startActivity(intent);
+            Toast.makeText(this, "Tela Lista", Toast.LENGTH_LONG).show();
 
         } else if (id == R.id.nav_promocao) {
-          //  Intent Intent_promocao = new Intent(this, PromocaoActivity.class);
+            Intent intent = new Intent(MenuActivity.this, MenuActivity.class);
+            startActivity(intent);
+            Toast.makeText(this, "Tela promoção", Toast.LENGTH_LONG).show();
+
         } else if (id == R.id.nav_desconectar) {
             FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, "Você se desconectou.", Toast.LENGTH_LONG).show();
 
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
             finishAffinity();
+
+
         } else if (id == R.id.nav_sair) {
-
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
             finishAffinity();
+            Toast.makeText(this, "Você saiu do App.", Toast.LENGTH_LONG).show();
 
     }
 
