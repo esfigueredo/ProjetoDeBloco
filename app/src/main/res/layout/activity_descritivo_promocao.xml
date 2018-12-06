@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/Branco"
     android:layout_gravity="center_vertical"
     tools:context=".telasiniciais.DescritivoPromocaoActivity">
 <LinearLayout
@@ -24,7 +24,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/white"
+        android:background="@color/Branco"
         android:gravity="center"
         android:textSize="24sp"
         tools:text=" Nome Produto" />
@@ -36,7 +36,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/white"
+        android:background="@color/Branco"
         android:gravity="center"
         android:textSize="24sp"
         tools:text="Marca" />
@@ -48,7 +48,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/white"
+        android:background="@color/Branco"
         android:gravity="center"
         android:textSize="24sp"
         tools:text="Valor"/>
@@ -60,7 +60,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/white"
+        android:background="@color/Branco"
         android:gravity="center"
         android:textSize="24sp"
         tools:text="Endereço" />
@@ -72,7 +72,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/white"
+        android:background="@color/Branco"
         android:gravity="center"
         android:textSize="24sp"
         tools:text="Endereço" />
