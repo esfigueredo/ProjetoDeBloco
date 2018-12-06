@@ -26,12 +26,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.Activity_Produto">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.esfig.projetodebloco.telasiniciais.TelaLogin" />
-        </activity>
-
         <activity android:name=".activities.ActivityCad" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
