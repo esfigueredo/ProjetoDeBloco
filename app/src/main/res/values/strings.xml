@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProjetoDeBloco</string>
+    <string name="app_name">Supermercado Facil</string>
     <string name="label_google_sign_in" translatable="false">Firebase + Google Sign In</string>
     <string name="desc_google_sign_in">Use a Google Sign In credential to authenticate with Firebase.</string>
 
@@ -131,8 +131,8 @@
     <string name="sair">sair</string>
     <string name="title_activity_menu_lista">MenuListaActivity</string>
     <string name="salvar_produto">Salvar Produto</string>
-    <string name="nome_do_estabelecimento">Nome do Estabelecimento</string>
-    <string name="endereco_do_estabelecimento">Endereço do Estabelecimento</string>
+    <string name="endereco_do_estabelecimento">Cidade do Estabelecimento</string>
+    <string name="nome_do_estabelecimento">estabelecimento / endereço</string>
 
 
 </resources>

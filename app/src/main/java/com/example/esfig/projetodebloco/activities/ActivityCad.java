@@ -1,14 +1,21 @@
 package com.example.esfig.projetodebloco.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatAutoCompleteTextView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
+import android.widget.TextView;
+
 import com.example.esfig.projetodebloco.Adapters.MarcaAutocompleteAdapter;
 import com.example.esfig.projetodebloco.Adapters.ProdutoAutocompleatAdapter;
 import com.example.esfig.projetodebloco.BO.PromocaoBO;
@@ -16,10 +23,13 @@ import com.example.esfig.projetodebloco.DAO.ComunsDAO;
 import com.example.esfig.projetodebloco.DAO.PromocaoDAO;
 import com.example.esfig.projetodebloco.R;
 import com.example.esfig.projetodebloco.Util.FireBaseCalback;
+import com.example.esfig.projetodebloco.Util.UtilMask;
 import com.example.esfig.projetodebloco.model.Local;
 import com.example.esfig.projetodebloco.model.Marca;
 import com.example.esfig.projetodebloco.model.Produto;
 import com.example.esfig.projetodebloco.model.Promocao;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +41,9 @@ public class ActivityCad extends AppCompatActivity {
     private AppCompatAutoCompleteTextView autoTextViewCustommarca;
 
     Promocao promo = new Promocao();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseUser firebaseUser;
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -47,12 +60,12 @@ public class ActivityCad extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-
+        firebaseUser = firebaseAuth.getCurrentUser();
 
         ComunsDAO cdao = new ComunsDAO();
         //Context c = this;
         try {
-            cdao.setEventiListener(Produto.class, "felipe", "", new FireBaseCalback() {
+            cdao.setEventiListener(Produto.class, firebaseUser.getUid(), "", new FireBaseCalback() {
                 @Override
                 public <T> void onCalback(List<T> list) {
 
@@ -76,7 +89,7 @@ public class ActivityCad extends AppCompatActivity {
                 }
             });
 
-            cdao.setEventiListener(Marca.class, "felipe", "", new FireBaseCalback() {
+            cdao.setEventiListener(Marca.class, firebaseUser.getUid(), "", new FireBaseCalback() {
                 @Override
                 public <T> void onCalback(List<T> list) {
 
@@ -118,11 +131,22 @@ public class ActivityCad extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                try {
 
-                String NomeLocal = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString() +((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
+                String NomeLocal = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString() +" "+((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
                 String nome = ((AutoCompleteTextView) findViewById(R.id.LocalId)).getText().toString();
                 String end = ((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).getText().toString();
-                String preco = ((AutoCompleteTextView) findViewById(R.id.valordoprodutoId)).getText().toString();
+                String preco = ((EditText) findViewById(R.id.valordoprodutoId)).getText().toString();
+
+
+                ((EditText) findViewById(R.id.valordoprodutoId)).addTextChangedListener(UtilMask.mask(((EditText) findViewById(R.id.valordoprodutoId)),UtilMask.FORMAT_PRECO));
+
+                ((EditText) findViewById(R.id.valordoprodutoId)).setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                    @Override
+                    public void onFocusChange(View v, boolean hasFocus) {
+                        ((AutoCompleteTextView)v).setText(((AutoCompleteTextView)v).getText().toString().contains(",0")?((AutoCompleteTextView)v).getText(): ((AutoCompleteTextView)v).getText().append(",00"));
+                    }
+                });
 
                 if(promo.getProdutoNome() == null){
                     Produto p =  new Produto();
@@ -140,15 +164,29 @@ public class ActivityCad extends AppCompatActivity {
                 l.setNome(nome);
                 l.setEndereco(end);
                 promo.setLocalPromo(l);
-                promo.setPreco(Double.valueOf(preco));
+                promo.setPreco(Double.valueOf(preco.replace(",",".")));
                 promo.setNomeLocal(NomeLocal);
 
                 PromocaoBO pbo =  new PromocaoBO();
 
-                try {
-                    pbo.Cadatrar(promo);
+                if(promo.getProdutoNome() == null || promo.getProdutoNome().isEmpty()){
+                    throw new Exception("Produto Não informado");
+                }
+                if(promo.getPreco() == 0 || String.valueOf(promo.getPreco()).isEmpty()){
+                    throw new Exception("Preço Não informado");
+                }
+                if(promo.getNomeLocal() == null || promo.getNomeLocal().isEmpty()){
+                    throw new Exception("Local Não informado");
+                }
+
+                pbo.Cadatrar(promo);
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.Telacadastro), "Promoção cadastrada com sucesso.", Snackbar.LENGTH_LONG);
+                snackbar.show();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Snackbar snackbar = Snackbar
+                            .make(findViewById(R.id.Telacadastro), e.getMessage(), Snackbar.LENGTH_LONG);
+                    snackbar.show();
                 }
             }
         });

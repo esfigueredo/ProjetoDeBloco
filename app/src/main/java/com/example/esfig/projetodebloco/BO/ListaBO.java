@@ -24,6 +24,11 @@ public class ListaBO {
 
     public void addLista(Promocao promocao, String ListaID){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        try {
+            promocao.setId(listadao.createTransactionID());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         listadao.addPromocao(user.getUid(),promocao,ListaID);
     }
 
@@ -35,7 +40,8 @@ public class ListaBO {
         listadao.setEventiListener(Lista.class, FirebaseAuth.getInstance().getCurrentUser().getUid(), "",fireBaseCalback);
     }
 
-    public void setEventiListenerListaPromocao(FireBaseCalback fireBaseCalback,String listaID) throws IllegalAccessException, InstantiationException{
-        listadao.setEventiListener(Lista.class, FirebaseAuth.getInstance().getCurrentUser().getUid()+"/"+listaID, "",fireBaseCalback);
+    public void getLista(FireBaseCalback fireBaseCalback,String listaID) throws IllegalAccessException, InstantiationException{
+        listadao.getObject(Lista.class, FirebaseAuth.getInstance().getCurrentUser().getUid(), listaID,fireBaseCalback);
     }
+
 }

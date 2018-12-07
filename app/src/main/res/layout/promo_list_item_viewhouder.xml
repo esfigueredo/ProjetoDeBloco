@@ -9,14 +9,14 @@
     android:orientation="horizontal"
     >
 
-
-
-
     <android.support.constraint.ConstraintLayout
         android:id="@+id/lnint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="6dp"
         android:background="@color/colorPrimary"
         android:orientation="vertical">
 
@@ -24,86 +24,99 @@
             android:id="@+id/textRcprodut"
 
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="1dp"
-            android:layout_marginEnd="4dp"
-            android:background="@color/Branco"
+            android:background="@drawable/edit_round"
             android:gravity="left|center"
             android:paddingLeft="8dp"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnExcluir"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textRcLocal"
-            android:layout_width="218dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/Branco"
-            android:gravity="center|center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/textRcPreco"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textRcmarcas" />
-
-        <TextView
-            android:id="@+id/textRcmarcas"
-            android:layout_width="218dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="8dp"
-            android:background="@color/Branco"
-            android:gravity="center|center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/textRcPreco"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textRcprodut" />
-
-        <TextView
-            android:id="@+id/textRcPreco"
-            android:layout_width="130dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
+        <ImageButton
+            android:id="@+id/btnVincular"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_row="0"
+            android:layout_column="2"
             android:layout_marginEnd="4dp"
-            android:layout_marginBottom="1dp"
-            android:background="@color/Branco"
-            android:gravity="center|center"
-            android:textColor="@color/colorPrimary"
-            android:textSize="25sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/ic_action_anexar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textRcprodut"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageButton
+            android:id="@+id/btnExcluir"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/ic_action_excluir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="5dp"
+            android:columnCount="3"
+            android:rowCount="3"
+            app:layout_constraintTop_toBottomOf="@+id/textRcprodut">
+
+            <TextView
+                android:id="@+id/textRcmarcas"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/edit_round"
+                android:gravity="center|center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/textRcPreco"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textRcLocal"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="1dp"
+                android:background="@drawable/edit_round"
+                android:gravity="center|center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/textRcPreco"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textRcPreco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_rowSpan="2"
+                android:layout_rowWeight="2"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/edit_round"
+                android:gravity="center|center"
+                android:textColor="@color/holo_red_light"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
+        </GridLayout>
     </android.support.constraint.ConstraintLayout>
-
-    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginBottom="2dp"
-        android:visibility="visible"
-        android:background="@color/Branco"
-        ads:adSize="LARGE_BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
-        //ads:adUnitId="ca-app-pub-3940256099942544/6300978111">//
-
-    </com.google.android.gms.ads.AdView>
-
-
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.esfig.projetodebloco.telasiniciais;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -17,13 +18,15 @@ import java.util.List;
 public class DescritivoPromocaoActivity extends AppCompatActivity {
 
     Promocao promo ;
+    Class call;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
+                Intent intent = new Intent(this, call);
+                startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -36,6 +39,7 @@ public class DescritivoPromocaoActivity extends AppCompatActivity {
 
 
         promo = (Promocao) getIntent().getSerializableExtra("promo");
+        call = (Class) getIntent().getSerializableExtra("myCallClass");
 
         TextView recebeNome = (TextView)findViewById(R.id.textView_01_recebe_nomeProduto);
         TextView recebeMarca = (TextView)findViewById(R.id.textView_02_recebe_marca);

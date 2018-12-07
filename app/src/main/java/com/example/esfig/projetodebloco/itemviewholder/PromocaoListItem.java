@@ -15,12 +15,14 @@ public class PromocaoListItem extends Item<PromocaoListViewHouder> {
 
     private MyclickListener listener;
     private MyclickListener presslistener;
+    private Boolean vincular;
     Promocao promocao;
 
-    public PromocaoListItem(MyclickListener listener,MyclickListener presslistener, Promocao p) {
+    public PromocaoListItem(MyclickListener listener,MyclickListener presslistener, Promocao p, Boolean vincular) {
         this.listener = listener;
         this.presslistener = presslistener;
         this.promocao = p;
+        this.vincular = vincular;
     }
 
     @Override
@@ -28,12 +30,20 @@ public class PromocaoListItem extends Item<PromocaoListViewHouder> {
         viewHolder.produto.setText(promocao.getProdutoNome());
         viewHolder.marca.setText(promocao.getNomeMarca());
         viewHolder.local.setText(promocao.getNomeLocal());
-        viewHolder.preco.setText(String.valueOf(promocao.getPreco()));
+        viewHolder.preco.setText(String.format("R$: %s",String.valueOf(promocao.getPreco()).replace(".",",")));
+
+        if(vincular) {
+            viewHolder.vinc.setVisibility(View.VISIBLE);
+            viewHolder.exclu.setVisibility(View.INVISIBLE);
+        }else{
+            viewHolder.exclu.setVisibility(View.VISIBLE);
+            viewHolder.vinc.setVisibility(View.INVISIBLE);
+        }
         viewHolder.lnt.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-                if( (event.getEventTime() - event.getDownTime()) > 3000){
+                if( (event.getEventTime() - event.getDownTime()) > 500){
                     presslistener.onClick(promocao.getId());
                 }else if (event.getAction() == MotionEvent.ACTION_UP ){
                     listener.onClick(promocao.getId());
