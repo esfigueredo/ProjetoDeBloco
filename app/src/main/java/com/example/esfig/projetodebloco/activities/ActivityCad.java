@@ -180,6 +180,7 @@ public class ActivityCad extends AppCompatActivity {
                 }
 
                 pbo.Cadatrar(promo);
+                clear();
                 Snackbar snackbar = Snackbar
                         .make(findViewById(R.id.Telacadastro), "Promoção cadastrada com sucesso.", Snackbar.LENGTH_LONG);
                 snackbar.show();
@@ -190,6 +191,13 @@ public class ActivityCad extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void clear() {
+       ((AutoCompleteTextView) findViewById(R.id.ProdutoId)).setText("");
+       ((AutoCompleteTextView) findViewById(R.id.marcadoprodutoId)).setText("");
+       ((AutoCompleteTextView) findViewById(R.id.estabelecimentoId)).setText("");
+       ((AutoCompleteTextView) findViewById(R.id.LocalId)).setText("");
+       ((EditText) findViewById(R.id.valordoprodutoId)).setText("");
     }
 }
 
