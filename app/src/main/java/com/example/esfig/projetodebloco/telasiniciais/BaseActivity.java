@@ -24,14 +24,14 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.promo_list_item_viewhouder);
 
-        MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
-        //(this, "ca-app-pub-3940256099942544~3347511713");
-        AdView mAdView=findViewById(R.id.);
+       /* MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
+        (this, "ca-app-pub-3940256099942544~3347511713");
+        AdView mAdView=findViewById(R.id.AdView);
         AdRequest adRequest=new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
         AdView adView=new AdView(this);
-        adView.setAdSize(AdSize.LARGE_BANNER);
+        adView.setAdSize(AdSize.LARGE_BANNER);*/
 
     }
 
