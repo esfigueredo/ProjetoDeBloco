@@ -26,7 +26,7 @@ public class BaseActivity extends AppCompatActivity {
 
         MobileAds.initialize(this,"ca-app-pub-3940256099942544~3347511713");
         //(this, "ca-app-pub-3940256099942544~3347511713");
-        AdView mAdView=findViewById(R.id.adView);
+        AdView mAdView=findViewById(R.id.);
         AdRequest adRequest=new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
