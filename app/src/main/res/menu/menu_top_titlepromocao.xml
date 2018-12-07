@@ -8,6 +8,7 @@
         android:icon="@drawable/ic_add_circle_outline_black_24dp"
         android:title="Adicionar Promoção"
         android:visible="true"
+        android:tooltipText="Adicionar a Lista"
         app:showAsAction="always" />
 
 </menu>
