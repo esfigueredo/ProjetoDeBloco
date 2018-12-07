@@ -9,15 +9,34 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.esfig.projetodebloco.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+    private AdView mAdView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+
+// Monetização utilizando Banner , na View = " promo_list_view_houder" //
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        //(this, "ca-app-pub-3940256099942544~3347511713");
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        AdView adView = new AdView(this);
+        adView.setAdSize(AdSize.LARGE_BANNER);
+
+        }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     public boolean onNavigationItemSelected(MenuItem item) {

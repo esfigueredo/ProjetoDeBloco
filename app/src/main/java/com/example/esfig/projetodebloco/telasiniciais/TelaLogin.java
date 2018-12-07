@@ -45,6 +45,15 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
 
     public static final int SING_IN_CODE = 777;
 
+    private void signOut() {
+        mGoogleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+    }
     @Override
     public void onStart() {
         super.onStart();
@@ -52,7 +61,11 @@ public class TelaLogin extends AppCompatActivity implements GoogleApiClient.OnCo
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             goMainScreen(currentUser);
-        }else{ }
+        }else {
+            mGoogleSignInClient.signOut();
+        }
+
+
     }
 
     @Override

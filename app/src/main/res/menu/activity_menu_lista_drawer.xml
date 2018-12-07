@@ -7,10 +7,12 @@
         <item
             android:id="@+id/nav_promocao"
             android:icon="@drawable/ic_attach_money_24dp"
+            android:tooltipText="Ir para Tela de Promoções"
             android:title="@string/promocao" />
         <item
             android:id="@+id/nav_minha_lista"
             android:icon="@drawable/ic_list_24dp"
+            android:tooltipText="Ir para minha Lista"
             android:title="@string/minha_lista" />
 
     </group>
@@ -20,13 +22,16 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
+                android:tooltipText="Compartilhar Aplicativo"
                 android:title="@string/compartilhe" />
             <item
                 android:id="@+id/nav_desconectar"
                 android:icon="@drawable/ic_exit_app_black_24dp"
+                android:tooltipText="Desconectar a conta"
                 android:title="@string/desconectar" />
             <item
                 android:id="@+id/nav_sair"
+                android:tooltipText="Sair do Aplicativo"
                 android:icon="@drawable/ic_exit_app_black_24dp"
                 android:title="@string/sair" />
         </menu>
