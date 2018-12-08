@@ -28,6 +28,11 @@ import com.example.esfig.projetodebloco.Util.MyclickListener;
 import com.example.esfig.projetodebloco.itemviewholder.PromocaoListItem;
 import com.example.esfig.projetodebloco.model.Lista;
 import com.example.esfig.projetodebloco.model.Promocao;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.xwray.groupie.GroupAdapter;
@@ -42,6 +47,9 @@ public class MenuListaActivity extends AppCompatActivity
     public GroupAdapter adapter =  new GroupAdapter();
     private TextView emailMenuView;
     private TextView nomeMenuView;
+    private InterstitialAd mInterstitialAd;
+
+    private AdView mAdView;
 
     public void onStart() {
         super.onStart();
@@ -56,6 +64,8 @@ public class MenuListaActivity extends AppCompatActivity
             Intent intent = new Intent(this, TelaLogin.class);
             startActivity(intent);
         }
+
+
     }
 
 
@@ -102,7 +112,31 @@ public class MenuListaActivity extends AppCompatActivity
             snackbar.show();
         }
 
-    }
+
+        MobileAds.initialize(this, "ca-app-pub-9404483305208909~3149168131");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
+        mAdView.loadAd(adRequest);
+        /*
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        AdRequest request = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
+        mInterstitialAd.loadAd(request);
+        mInterstitialAd.show();
+
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+
+        });
+        mInterstitialAd.show();
+           */
+        }
 
     public MyclickListener presslistener = new MyclickListener() {
         @Override

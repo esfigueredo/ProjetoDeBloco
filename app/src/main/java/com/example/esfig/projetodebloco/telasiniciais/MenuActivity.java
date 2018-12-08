@@ -25,6 +25,9 @@ import com.example.esfig.projetodebloco.Util.MyclickListener;
 import com.example.esfig.projetodebloco.activities.ActivityCad;
 import com.example.esfig.projetodebloco.itemviewholder.PromocaoListItem;
 import com.example.esfig.projetodebloco.model.Promocao;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -56,6 +59,7 @@ public class MenuActivity extends AppCompatActivity
     private TextView nomeMenuView;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,8 @@ public class MenuActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -99,6 +105,13 @@ public class MenuActivity extends AppCompatActivity
                     .make(findViewById(R.id.content_menu_layoutdiv), "Ocorreu um erro, contate ao suporte", Snackbar.LENGTH_LONG);
             snackbar.show();
         }
+
+        MobileAds.initialize(this, "ca-app-pub-9404483305208909~3149168131");
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
+        mAdView.loadAd(adRequest);
+
 
     }
 
